@@ -110,7 +110,6 @@ class AdminController extends Controller
      */
     public function update(StatsRequest $request, Stats $stats)
     {
-
         $stats->update($request->validated());
 
         return redirect()->route('stats.admin.index')

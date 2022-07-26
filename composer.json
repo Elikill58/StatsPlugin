@@ -1,0 +1,10 @@
+{
+    "name": "azuriom/stats",
+    "type": "azuriom-plugin",
+    "description": "Plugin Stats for Azuriom",
+    "autoload": {
+        "psr-4": {
+            "Azuriom\\Plugin\\Stats\\": "src/"
+        }
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "id": "stats",
+    "name": "Stats",
+    "description": "Plugin about Stats by Elikill58",
+    "version": "1.0.0",
+    "url": "https://arkemis.fr",
+    "authors": [
+        "Elikill58"
+    ],
+    "azuriom_api": "1.0.0",
+    "providers": [
+        "\\Azuriom\\Plugin\\Stats\\Providers\\StatsServiceProvider",
+        "\\Azuriom\\Plugin\\Stats\\Providers\\RouteServiceProvider"
+    ]
+}

@@ -128,6 +128,8 @@ class AdminController extends Controller
      */
     public function destroy(Stats $stats)
     {
+        dump($stats);
+        dd("??");
         $stats->delete();
 
         return redirect()->route('stats.admin.index')

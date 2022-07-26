@@ -1,7 +1,6 @@
 <?php
 
 use Azuriom\Plugin\Stats\Controllers\Admin\AdminController;
-use Azuriom\Plugin\Stats\Controllers\Admin\LinkController;
 use Azuriom\Plugin\Stats\Controllers\Admin\SettingController;
 use Azuriom\Plugin\Stats\Controllers\Admin\GamesController;
 use Illuminate\Support\Facades\Route;
@@ -28,7 +27,4 @@ Route::middleware('can:stats.admin')->group(function () {
     Route::post('games/update-order', [GamesController::class, 'updateOrder'])->name('games.update-order');
 
     Route::resource('settings', SettingController::class)->only('update');
-
-    Route::resource('links', LinkController::class)->only('destroy');
-    Route::post('links/update-order', [LinkController::class, 'updateOrder'])->name('links.update-order');
 });

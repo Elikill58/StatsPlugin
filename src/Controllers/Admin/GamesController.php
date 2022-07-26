@@ -104,7 +104,7 @@ class GamesController extends Controller
      */
     public function destroy(Games $game)
     {
-        $statss = Stats::where("games_id", $game->id);
+        $statss = Stats::where("games_id", $game->id)->get();
         foreach ($statss as $stats) {
             $stats->delete();
         }

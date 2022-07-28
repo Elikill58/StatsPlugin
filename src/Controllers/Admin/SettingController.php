@@ -64,11 +64,10 @@ class SettingController extends Controller
         $setting->name = 'global';
 
         $input = [
-            'description' => $request->input('description'),
-            'effect' => $request->input('effect'),
-            'style' => $request->input('style'),
-            'column' => $request->input('column'),
-            'alignment' => $request->input('alignment')
+            'database' => $request->input('database'),
+            'table' => $request->input('table'),
+            'column_uuid' => $request->input('column_uuid'),
+            'column_name' => $request->input('column_name')
         ];
 
         $setting->settings = $input;

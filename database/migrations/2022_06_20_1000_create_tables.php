@@ -17,6 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->longText('description')->nullable();
+            $table->string('stats_host')->nullable();
+            $table->unsignedInteger('stats_port')->nullable();
+            $table->string('stats_username')->nullable();
+            $table->string('stats_password')->nullable();
             $table->string('stats_database');
             $table->string('stats_table');
             $table->string('stats_unique_col');
@@ -28,6 +32,7 @@ return new class extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('description')->nullable();
+            $table->string('stats_column');
             $table->bigInteger('games_id')->unsigned();
             $table->unsignedInteger('position')->default(0);
             $table->timestamps();

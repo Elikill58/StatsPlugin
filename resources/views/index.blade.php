@@ -7,32 +7,38 @@
 @endpush
 
 @section('content')
-    <div class="row mt-5" id="stats">
-        @foreach($games as $game)
-            @if($game->stats()->count() >= 1)
-                <div class="col-md-3">
-                    <div class="card shadow">
-                        <div class="card-header rounded text-center text-primary">
-                            <i class="bi bi-controller fs-1 mb-3"></i>
-
-                            <h2>{{ $game->name }}</h2>
-                            <p>{{ $game->description }}</p>
-                        </div>
-                        <div class="card-body rounded text-center text-primary">
-                            @foreach($statss as $stats)
-                                @if($stats->games_id == $game->id)
-                                    <p>{{ $stats->name }}</p>
-                                @endif
-                            @endforeach
-                        </div>
-                    </div>
+    <div class="row" id="stats">
+        <div class="col-12 py-3">
+            @if(app('request')->input('error') != null)
+            <div class="card">
+                <div class="card-body">
+                    <p class="text-warning">{{ trans('stats::messages.error.' . app('request')->input('error')) }}</p>
                 </div>
-            @endif
-        @endforeach
-        @if($games->count() == 0)
-            <div class="alert alert-warning" role="alert">
-                {{ trans('stats::messages.stats-empty') }}
             </div>
-        @endif
+            @endif
+        </div>
+        <div class="col-12">
+            <form class="card">
+                <div class="card-body">
+                    <label class="form-label" for="settingEffect">{{ trans('messages.fields.name') }}</label>
+                    <input type="text" class="form-control" id="playername" name="playername" required>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" value="submit request" class="btn btn-primary" onclick="return checkValidation()">
+                        {{ trans('messages.actions.continue') }}
+                        <span role="status"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        function checkValidation() {
+            window.location.href = './stats/' + document.getElementById('playername').value;
+            return false;
+        }
+    </script>
+@endpush

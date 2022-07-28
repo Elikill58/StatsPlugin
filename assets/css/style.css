@@ -1,3 +1,42 @@
-#stats .card{min-width:250px}#stats .card:active .description{transform:translateY(0);transition:transform .321s ease-in}#stats .card .description{height:230px;overflow-y:auto;transform:translateY(-105%);transition:transform .3s ease-in;width:100%;z-index:2}#stats .img-hover-zoom--colorize img{transition:transform .5s}#stats .img-hover-zoom--colorize:hover img{transform:scale(1.05)}#stats .img-hover-zoom--colorize.hover img{filter:grayscale(100%)}#stats .img-hover-zoom--colorize.hover:hover img{filter:grayscale(0)}#stats .bi{font-size:1.5rem;transition:transform .5s}#stats .bi:hover{transform:scale(1.1)}
-
-/*# sourceMappingURL=style.css.map*/
+#stats .card{
+    min-width:250px
+}
+#stats .card:active .description{
+    transform:translateY(0);
+    transition:transform .321s ease-in
+}
+#stats .card .description{
+    height:230px;
+    overflow-y:auto;
+    transform:translateY(-105%);
+    transition:transform .3s ease-in;
+    width:100%;
+    z-index:2
+}
+#stats .img-hover-zoom--colorize img{
+    transition:transform .5s
+}
+#stats .img-hover-zoom--colorize:hover img{
+    transform:scale(1.05)
+}
+#stats .img-hover-zoom--colorize.hover img{
+    filter:grayscale(100%)
+}
+#stats .img-hover-zoom--colorize.hover:hover img{
+    filter:grayscale(0)
+}
+#stats .bi{
+    font-size:1.5rem;
+    transition:transform .5s
+}
+#stats .bi:hover{
+    transform:scale(1.1)
+}
+.form-right {
+	width: 50%;
+	padding-left: 1%;
+}
+.form-left {
+	width: 50%;
+	padding-right: 1%;
+}

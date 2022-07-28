@@ -138,7 +138,6 @@
                                     </th>
                                     <td>{{$stats->name}}</td>
                                     <td>{{ $stats->gameName() }}</td>
-                                    <td>{{ dump($stats) }}</td>
                                     <td>
                                         <a href="{{ route('stats.admin.stats.edit', $stats) }}" class="mx-1"
                                            title="{{ trans('messages.actions.edit') }}" data-toggle="tooltip"><i

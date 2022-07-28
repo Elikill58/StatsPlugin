@@ -25,7 +25,7 @@ class Stats extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'description', 'games_id', 'position'];
+    protected $fillable = ['name', 'description', 'stats_column', 'games_id', 'position'];
 
     /**
      * The attributes that should be cast to native types.
@@ -53,8 +53,19 @@ class Stats extends Model
         return $g ? $g->name : "-";
     }
 
+    public function show($sql)
+    {
+        if(isset($sql[$this->stats_column])) {
+            return "<p>" . $this->name . ": " . $sql[$this->stats_column] . "</p>";
+        }
+        return "<p>" . $this->name . ": ?</p>";
+    }
+
     function isSelected($id)
     {
+        if(!isset($ids)) {
+            return '';
+        }
         return collect($ids)->contains($id) ? 'selected' : '';
     }
 }

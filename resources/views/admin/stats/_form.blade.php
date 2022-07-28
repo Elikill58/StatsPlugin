@@ -14,6 +14,16 @@
         @enderror
     </div>
     <div class="mb-3">
+        <label class="form-label" for="nameInput">{{ trans('stats::admin.stats.column') }}</label>
+        <input type="text" class="form-control @error('stats_column') is-invalid @enderror" id="nameInput"
+               name="stats_column"
+               value="{{ old('stats_column', $stats->stats_column ?? '') }}" required>
+
+        @error('stats_column')
+        <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+        @enderror
+    </div>
+    <div class="mb-3">
         <label class="form-label" for="descriptionInput">{{ trans('messages.fields.description') }}</label>
 
         <textarea class="form-control html-editor @error('description') is-invalid @enderror" id="descriptionInput"
@@ -25,10 +35,10 @@
     </div>
 
     <div class="mb-3">
-        <label class="form-label" for="">Jeux</label>
-        <select name="games[]" class="form-control" multiple="multiple">
+        <label class="form-label" for="">{{ trans('stats::admin.game.index') }}</label>
+        <select name="games_id" id="gameSelect" class="form-control">
             @foreach($games as $game)
-                <option value="{{ $game->id }}" {{isset($stats) ?$stats->isSelected($game->id):""}}>
+                <option value="{{ $game->id }}">
                     {{ $game->name }}
                 </option>
             @endforeach

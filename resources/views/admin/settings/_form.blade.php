@@ -1,19 +1,26 @@
 @csrf
 <div class="card-body">
     <div class="mb-3">
-        <div class="form-check  form-switch">
-            <input type="checkbox" class="form-check-input" id="settingDescription" name="description"
-                   @if($setting->settings()->settings->description ?? true) checked @endif>
-            <label class="form-check-label"
-                   for="settingDescription">{{ trans('stats::admin.setting.settings.description') }}</label>
-        </div>
+        <label class="form-label" for="settingDescription">{{ trans('install.database.database') }}</label>
+        <input type="text" class="form-control" id="settingDatabase" name="database" required
+               value="{{ old('database', $setting->settings()->settings->database ?? '') }}">
     </div>
+    <h3>{{ trans('stats::admin.setting.settings.uuid_name') }}</h3>
     <div class="mb-3">
-        <div class="form-check  form-switch">
-            <input type="checkbox" class="form-check-input" id="settingEffect" name="effect"
-                   @if($setting->settings()->settings->effect ?? true) checked @endif>
-            <label class="form-check-label"
-                   for="settingEffect">{{ trans('stats::admin.setting.settings.effect') }}</label>
+        <label class="form-label" for="settingEffect">{{ trans('stats::admin.setting.settings.table') }}</label>
+        <input type="text" class="form-control" id="settingTable" name="table" required
+               value="{{ old('table', $setting->settings()->settings->table ?? '') }}">
+    </div>
+    <div class="mb-3" style="display: flex;">
+        <div class="form-right">
+            <label class="form-label" for="settingEffect">{{ trans('stats::admin.setting.settings.column_uuid') }}</label>
+            <input type="text" class="form-control" id="settingColumnUuid" name="column_uuid" required
+               value="{{ old('column_uuid', $setting->settings()->settings->column_uuid ?? '') }}">
+        </div>
+        <div class="form-left">
+            <label class="form-label" for="settingEffect">{{ trans('stats::admin.setting.settings.column_name') }}</label>
+            <input type="text" class="form-control" id="settingColumnName" name="column_name" required
+               value="{{ old('column_name', $setting->settings()->settings->column_name ?? '') }}">
         </div>
     </div>
 </div>

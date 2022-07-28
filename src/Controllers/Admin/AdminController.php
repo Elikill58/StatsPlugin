@@ -15,13 +15,6 @@ class AdminController extends Controller
 {
 
     /**
-     * The storage path for uploaded images.
-     *
-     * @var string
-     */
-    protected $imagesPath = 'stats';
-
-    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -93,10 +86,12 @@ class AdminController extends Controller
      *
      * @param \Azuriom\Plugin\Stats\Models\Stats $stats
      */
-    public function edit(Stats $stats)
+    public function edit(Stats $stat)
     {
+        $games = Games::orderBy('position')->get();
         return view('stats::admin.stats.edit', [
-            'stats' => $stats,
+            'stats' => $stat,
+            'games' => $games
         ]);
     }
 
@@ -108,9 +103,9 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(StatsRequest $request, Stats $stats)
+    public function update(StatsRequest $request, Stats $stat)
     {
-        $stats->update($request->validated());
+        $stat->update($request->validated());
 
         return redirect()->route('stats.admin.index')
             ->with('success', trans('stats::admin.stats.updated'));
@@ -125,11 +120,9 @@ class AdminController extends Controller
      *
      * @throws \Exception
      */
-    public function destroy(Stats $stats)
+    public function destroy(Stats $stat)
     {
-        dump($stats);
-        dd("??");
-        $stats->delete();
+        $stat->delete();
 
         return redirect()->route('stats.admin.index')
             ->with('success', trans('stats::admin.stats.deleted'));

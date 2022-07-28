@@ -11,6 +11,7 @@ return [
         'created' => 'Stats créé.',
         'updated' => 'Stats mis à jour.',
         'deleted' => 'Stats supprimé.',
+        'column' => 'Colonne'
     ],
     'game' => [
         'index' => 'Jeux',
@@ -20,6 +21,9 @@ return [
         'created' => 'Jeu créé.',
         'updated' => 'Jeu mis à jour.',
         'deleted' => 'Jeu supprimé.',
+        'table' => 'Table',
+        'unique_col' => 'Colonne unique',
+        'empty_to_keep' => 'Laisser vide pour garder la valeur global (c\'est-à-dire les valeurs utilisées par Azuriom)'
     ],
     'setting' => [
         'title' => 'Paramètre',
@@ -27,8 +31,10 @@ return [
         'updated' => 'Paramètre mis à jour.',
         'deleted' => 'Paramètre supprimé.',
         'settings' => [
-            'description' => 'Afficher la description directement dans la fenêtre du stats.',
-            'effect' => 'Afficher l\'effet noir et blanc au survol de la fenêtre.'
+            'uuid_name' => 'Configuration de la correspondance UUID <=> Pseudo:',
+            'table' => 'Table',
+            'column_uuid' => 'Colonne pour les UUID',
+            'column_name' => 'Colonne pour les pseudo'
         ]
     ]
 ];

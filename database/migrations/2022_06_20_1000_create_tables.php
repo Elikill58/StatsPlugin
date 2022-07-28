@@ -32,6 +32,7 @@ return new class extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('description')->nullable();
+            $table->unsignedInteger('style')->default(1);
             $table->string('stats_column');
             $table->bigInteger('games_id')->unsigned();
             $table->unsignedInteger('position')->default(0);

@@ -27,7 +27,7 @@ if (!is_string($uuid) || (preg_match('/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89
 @endpush
 
 @section('content')
-    <div class="row mt-5" id="stats">
+    <div class="row" id="stats">
         @foreach($games as $game)
             @if($game->stats()->count() >= 1)
                 <div class="col-md-3">
@@ -44,7 +44,17 @@ if (!is_string($uuid) || (preg_match('/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89
                             ?>
                             @foreach ($statss as $stats)
                                 @if($stats->games_id == $game->id)
-                                    {{ $stats->show($statsValues) }}
+                                    <?php
+                                    $val = $stats->getValue($statsValues);
+                                    ?>
+                                    @switch($stats->style ?? 1)
+                                        @case('1')
+                                        @include('stats::styles._basic')
+                                        @break
+                                        @case('2')
+                                        @include('stats::styles._ratio')
+                                        @break
+                                    @endswitch
                                 @endif
                             @endforeach
                         </div>

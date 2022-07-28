@@ -1,15 +1,17 @@
 @csrf
 <div class="card-body">
-    <div class="mb-3">
-        <label class="form-label" for="settingDescription">{{ trans('install.database.database') }}</label>
-        <input type="text" class="form-control" id="settingDatabase" name="database" required
-               value="{{ old('database', $setting->settings()->settings->database ?? '') }}">
-    </div>
     <h3>{{ trans('stats::admin.setting.settings.uuid_name') }}</h3>
-    <div class="mb-3">
-        <label class="form-label" for="settingEffect">{{ trans('stats::admin.setting.settings.table') }}</label>
-        <input type="text" class="form-control" id="settingTable" name="table" required
-               value="{{ old('table', $setting->settings()->settings->table ?? '') }}">
+    <div class="mb-3" style="display: flex;">
+        <div class="form-right">
+            <label class="form-label" for="settingDescription">{{ trans('install.database.database') }}</label>
+            <input type="text" class="form-control" id="settingDatabase" name="database" required
+                   value="{{ old('database', $setting->settings()->settings->database ?? '') }}">
+        </div>
+        <div class="form-left">
+            <label class="form-label" for="settingEffect">{{ trans('stats::admin.setting.settings.table') }}</label>
+            <input type="text" class="form-control" id="settingTable" name="table" required
+                   value="{{ old('table', $setting->settings()->settings->table ?? '') }}">
+        </div>
     </div>
     <div class="mb-3" style="display: flex;">
         <div class="form-right">

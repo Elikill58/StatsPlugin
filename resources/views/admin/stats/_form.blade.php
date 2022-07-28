@@ -35,7 +35,18 @@
     </div>
 
     <div class="mb-3">
-        <label class="form-label" for="">{{ trans('stats::admin.game.index') }}</label>
+        <label class="form-label" for="">{{ trans('stats::admin.stats.style.index') }}</label>
+        <select name="style" id="selectedStyle" class="form-control">
+            @foreach (array(1 => 'basic', 2 => 'ratio') as $styleId => $stylekey)
+                <option value="{{ $styleId }}" @if(isset($stats->style) && $stats->style == $styleId) selected @endif>
+                    {{ trans('stats::admin.stats.style.' . $stylekey) }}
+                </option>
+            @endforeach
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" for="">{{ trans('messages.fields.game') }}</label>
         <select name="games_id" id="gameSelect" class="form-control">
             @foreach($games as $game)
                 <option value="{{ $game->id }}">

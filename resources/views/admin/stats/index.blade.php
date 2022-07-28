@@ -2,6 +2,10 @@
 
 @section('title', trans('stats::admin.title'))
 
+@push('styles')
+    <link href="{{ plugin_asset('stats', 'css/style.css') }} " rel="stylesheet">
+@endpush
+
 @push('footer-scripts')
     <script src="{{ asset('vendor/sortablejs/Sortable.min.js') }}"></script>
     <script>

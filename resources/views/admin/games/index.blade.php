@@ -1,6 +1,11 @@
 @extends('admin.layouts.admin')
 
 @section('title', trans('stats::admin.game.title'))
+
+@push('styles')
+    <link href="{{ plugin_asset('stats', 'css/style.css') }} " rel="stylesheet">
+@endpush
+
 @push('footer-scripts')
     <script src="{{ asset('vendor/sortablejs/Sortable.min.js') }}"></script>
     <script>
@@ -41,6 +46,7 @@
         }
     </script>
 @endpush
+
 @section('content')
     <div class="row">
         <div class="col-md-6">

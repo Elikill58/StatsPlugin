@@ -21,7 +21,7 @@
         @enderror
     </div>
     <div class="mb-3" style="display: flex;">
-        <div style="width: 50%; padding-right: 1%;">
+        <div class="form-right">
             <label class="form-label" for="dbInput">{{ trans('install.database.host') }}*</label>
             <input type="text" class="form-control @error('stats_host') is-invalid @enderror" id="dbInput"
                    name="stats_host"
@@ -31,7 +31,7 @@
             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
             @enderror
         </div>
-        <div style="width: 50%; padding-left: 1%;">
+        <div class="form-left">
             <label class="form-label" for="dbInput">{{ trans('install.database.port') }}*</label>
             <input type="number" class="form-control @error('stats_port') is-invalid @enderror" id="dbInput"
                    name="stats_port"
@@ -43,7 +43,7 @@
         </div>
     </div>
     <div class="mb-3" style="display: flex;">
-        <div style="width: 50%; padding-right: 1%;">
+        <div class="form-right">
             <label class="form-label" for="dbInput">{{ trans('install.database.user') }}*</label>
             <input type="text" class="form-control @error('stats_username') is-invalid @enderror" id="dbInput"
                    name="stats_username"
@@ -53,7 +53,7 @@
             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
             @enderror
         </div>
-        <div style="width: 50%; padding-left: 1%;">
+        <div class="form-left">
             <label class="form-label" for="dbInput">{{ trans('install.database.password') }}*</label>
             <input type="text" class="form-control @error('stats_password') is-invalid @enderror" id="dbInput"
                    name="stats_password"

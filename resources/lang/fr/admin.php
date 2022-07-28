@@ -11,7 +11,12 @@ return [
         'created' => 'Stats créé.',
         'updated' => 'Stats mis à jour.',
         'deleted' => 'Stats supprimé.',
-        'column' => 'Colonne'
+        'column' => 'Colonne',
+        'style' => [
+            'index' => 'Style',
+            'basic' => 'Basique',
+            'ratio' => 'Ratio'
+        ]
     ],
     'game' => [
         'index' => 'Jeux',

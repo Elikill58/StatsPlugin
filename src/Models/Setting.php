@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Stats
+ * Class Settings
  *
  * @property integer        $id
  * @property string         $name

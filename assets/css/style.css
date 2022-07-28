@@ -1,24 +1,24 @@
 #stats .card{
-    min-width:250px
+    min-width: 250px;
 }
 #stats .card:active .description{
-    transform:translateY(0);
-    transition:transform .321s ease-in
+    transform: translateY(0);
+    transition: transform .321s ease-in;
 }
 #stats .card .description{
-    height:230px;
-    overflow-y:auto;
-    transform:translateY(-105%);
-    transition:transform .3s ease-in;
-    width:100%;
-    z-index:2
+    height: 230px;
+    overflow-y: auto;
+    transform: translateY(-105%);
+    transition: transform .3s ease-in;
+    width: 100%;
+    z-index: 2;
 }
 #stats .bi{
     font-size:1.5rem;
-    transition:transform .5s
+    transition:transform .5s;
 }
 #stats .bi:hover{
-    transform:scale(1.1)
+    transform:scale(1.1);
 }
 .form-right {
     width: 50%;
@@ -30,8 +30,20 @@
 }
 .ratio-background {
     background-color: red;
+    width: 90%;
 }
 .ratio-main {
     height: 12px;
     background-color: green;
+}
+.ratio-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.ratio-wrapper p {
+    margin: 0;
+    width: 10%;
+    min-width: fit-content;
+    margin-right: 10px;
 }

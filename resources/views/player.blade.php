@@ -41,22 +41,26 @@ if (!is_string($uuid) || (preg_match('/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89
                         <div class="card-body rounded text-center text-primary">
                             <?php
                             $statsValues = $game->makeRequest($uuid);
-                            ?>
-                            @foreach ($statss as $stats)
-                                @if($stats->games_id == $game->id)
-                                    <?php
-                                    $val = $stats->getValue($statsValues);
-                                    ?>
-                                    @switch($stats->style ?? 1)
-                                        @case('1')
-                                        @include('stats::styles._basic')
-                                        @break
-                                        @case('2')
-                                        @include('stats::styles._ratio')
-                                        @break
-                                    @endswitch
-                                @endif
-                            @endforeach
+                            if(count($statsValues) == 0) {
+                                echo trans('stats::messages.error.never-played');
+                            } else {
+                                ?>
+                                @foreach ($statss as $stats)
+                                    @if($stats->games_id == $game->id)
+                                        <?php
+                                        $val = $stats->getValue($statsValues);
+                                        ?>
+                                        @switch($stats->style ?? 1)
+                                            @case('1')
+                                            @include('stats::styles._basic')
+                                            @break
+                                            @case('2')
+                                            @include('stats::styles._ratio')
+                                            @break
+                                        @endswitch
+                                    @endif
+                                @endforeach
+                            <?php } ?>
                         </div>
                     </div>
                 </div>

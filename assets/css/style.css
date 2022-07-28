@@ -30,7 +30,7 @@
 }
 .ratio-background {
     background-color: red;
-    width: 90%;
+    width: 80%;
 }
 .ratio-main {
     height: 12px;
@@ -43,7 +43,7 @@
 }
 .ratio-wrapper p {
     margin: 0;
-    width: 10%;
+    width: 20%;
     min-width: fit-content;
     margin-right: 10px;
 }

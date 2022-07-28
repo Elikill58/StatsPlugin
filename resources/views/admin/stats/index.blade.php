@@ -48,50 +48,6 @@
                 return serializeStats(stats);
             });
         }
-
-        document.getElementById('statsForm').addEventListener('submit', function () {
-            let i = 0;
-            document.getElementById('links').querySelectorAll('.link-parent').forEach(function (el) {
-                el.querySelectorAll('input').forEach(function (input) {
-                    input.name = input.name.replace('{index}', i.toString());
-                });
-                i++;
-            });
-        });
-
-        function addLinkListener(el) {
-            el.addEventListener('click', function () {
-                const element = el.parentNode.parentNode.parentNode.parentNode;
-
-                element.parentNode.removeChild(element);
-            });
-        }
-
-        document.querySelectorAll('.link-remove').forEach(function (el) {
-            addLinkListener(el);
-        });
-
-        document.getElementById('addLinkButton').addEventListener('click', function () {
-            let input = '<div class="row g-0"><div class="col-md-4">';
-            input += '<input type="text" class="form-control" name="link[{index}][icon]" placeholder="{{ trans('messages.fields.icon') }}"></div>';
-            input += '<div class="col-md-4"><div class="input-group">';
-            input += '<input type="text" class="form-control" name="link[{index}][name]" placeholder="{{ trans('messages.fields.name') }}"></div></div>';
-            input += '<div class="col-md-4"><div class="input-group">';
-            input += '<input type="text" class="form-control" name="link[{index}][url]" placeholder="{{ trans('messages.fields.url') }}">';
-            input += '<div class="input-group-append"><button class="btn btn-outline-danger link-remove" type="button">';
-            input += '<i class="bi bi-trash-fill"></i></button></div></div></div></div></div>';
-
-            const newElement = document.createElement('div');
-            newElement.classList.add('link-parent')
-            newElement.classList.add('sortable-dropdown')
-            newElement.classList.add('link-parent')
-            newElement.innerHTML = input;
-
-            addLinkListener(newElement.querySelector('.link-remove'));
-
-            document.getElementById('links').appendChild(newElement);
-        });
-
     </script>
 @endpush
 

@@ -12,6 +12,7 @@ return [
         'updated' => 'Stats mis à jour.',
         'deleted' => 'Stats supprimé.',
         'column' => 'Colonne',
+        'linked' => 'Lié à',
         'style' => [
             'index' => 'Style',
             'basic' => 'Basique',

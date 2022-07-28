@@ -105,6 +105,11 @@ class AdminController extends Controller
      */
     public function update(StatsRequest $request, Stats $stat)
     {
+        $input = [
+            'linked' => $request->input('linked'),
+        ];
+
+        $stat->settings = $input;
         $stat->update($request->validated());
 
         return redirect()->route('stats.admin.index')

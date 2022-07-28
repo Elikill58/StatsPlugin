@@ -50,13 +50,9 @@ class StatsServiceProvider extends BasePluginServiceProvider
 
         if (Schema::hasTable('stats_settings')) {
             if (!Setting::first()) {
-                $checkbox = array(
-                    'description' => false,
-                    'effect'      => true
-                );
                 $setting = new Setting();
                 $setting->name = 'global';
-                $setting->settings = $checkbox;
+                $setting->settings = array();
                 $setting->save();
             }
         }

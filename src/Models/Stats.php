@@ -25,7 +25,7 @@ class Stats extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'description', 'style', 'stats_column', 'games_id', 'position'];
+    protected $fillable = ['name', 'settings', 'style', 'stats_column', 'games_id', 'position'];
 
     /**
      * The attributes that should be cast to native types.
@@ -33,7 +33,8 @@ class Stats extends Model
      * @var array
      */
     protected $casts = [
-        'position' => 'integer'
+        'position' => 'integer',
+        'settings' => 'array',
     ];
 
     /**
@@ -59,6 +60,11 @@ class Stats extends Model
             return $sql[$this->stats_column];
         }
         return "?";
+    }
+
+    public function setSettingsAttribute($array)
+    {
+        $this->attributes['settings'] = json_encode($array);
     }
 
     function isSelected($id)

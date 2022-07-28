@@ -5,6 +5,9 @@
 @push('footer-scripts')
     <script src="{{ asset('vendor/sortablejs/Sortable.min.js') }}"></script>
 @endpush
+@push('styles')
+    <link href="{{ plugin_asset('stats', 'css/style.css') }} " rel="stylesheet">
+@endpush
 
 @section('content')
     <div class="card shadow mb-4">

@@ -26,7 +26,7 @@ class Games extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'description', 'stats_host', 'stats_port', 'stats_username', 'stats_password', 'stats_database', 'stats_table', 'stats_unique_col', 'position'];
+    protected $fillable = ['name', 'description', 'show_profile', 'stats_host', 'stats_port', 'stats_username', 'stats_password', 'stats_database', 'stats_table', 'stats_unique_col', 'position'];
 
     /**
      * The attributes that should be cast to native types.
@@ -34,6 +34,7 @@ class Games extends Model
      * @var array
      */
     protected $casts = [
+        'show_profile' => 'boolean',
         'position' => 'integer'
     ];
 

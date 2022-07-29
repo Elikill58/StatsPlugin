@@ -29,6 +29,7 @@ return [
         'deleted' => 'Jeu supprimé.',
         'table' => 'Table',
         'unique_col' => 'Colonne unique',
+        'show_profile' => 'Voir sur le profil',
         'empty_to_keep' => 'Laisser vide pour garder la valeur global (c\'est-à-dire les valeurs utilisées par Azuriom)'
     ],
     'setting' => [

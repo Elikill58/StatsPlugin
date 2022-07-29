@@ -2,6 +2,10 @@
 
 @section('title', trans('stats::admin.game.title-edit') .' : '.$game->name)
 
+@push('styles')
+    <link href="{{ plugin_asset('stats', 'css/style.css') }} " rel="stylesheet">
+@endpush
+
 @section('content')
     <div class="card shadow mb-4">
         <div class="card-body">

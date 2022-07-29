@@ -20,6 +20,17 @@
         <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
         @enderror
     </div>
+    <div class="mb-3">
+        <div class="form-check form-switch">
+            <input type="checkbox" class="form-check-input" id="showProfileInput" name="show_profile"
+                    @if($game->show_profile ?? false) checked @endif>
+            <label class="form-check-label" for="showProfileInput">{{ trans('stats::admin.game.show_profile') }}</label>
+
+            @error('show_profile')
+            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+            @enderror
+        </div>
+    </div>
     <div class="mb-3" style="display: flex;">
         <div class="form-left">
             <label class="form-label" for="dbInput">{{ trans('install.database.host') }}*</label>

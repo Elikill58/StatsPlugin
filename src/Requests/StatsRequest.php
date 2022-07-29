@@ -15,7 +15,7 @@ class StatsRequest extends FormRequest
     {
         return [
             'name'        => ['required', 'string', 'max:50'],
-            'settings.*'    => ['required', 'array'],
+            'settings.*'  => ['required', 'array'],
             'style'       => ['required', 'integer', 'min:1'],
             'stats_column'=> ['required', 'string', 'max:255'],
             'games_id'    => ['nullable', 'exists:stats_games,id'],

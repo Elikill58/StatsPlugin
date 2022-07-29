@@ -65,7 +65,6 @@ if(isset($result) && count($result) > 0) {
                 <div class="card-header rounded text-center text-primary">
                     <img src="https://crafatar.com/avatars/{{ $uuid }}">
                     <h2>{{ $name }}</h2>
-                    <p class="profile-uuid">{{ $uuid }}</p>
                 </div>
                 @foreach($games as $game)
                     @if($game->show_profile && $game->stats()->count() >= 1)

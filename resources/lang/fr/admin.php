@@ -13,10 +13,12 @@ return [
         'deleted' => 'Stats supprimé.',
         'column' => 'Colonne',
         'linked' => 'Lié à',
+        'timed_from' => 'Temps de base en',
         'style' => [
             'index' => 'Style',
             'basic' => 'Basique',
-            'ratio' => 'Ratio'
+            'ratio' => 'Ratio',
+            'timed' => 'Temps'
         ]
     ],
     'game' => [
@@ -43,5 +45,14 @@ return [
             'column_uuid' => 'Colonne pour les UUID',
             'column_name' => 'Colonne pour les pseudo'
         ]
+    ],
+    'timed' => [
+        'millisecond' => 'Milliseconde',
+        'second' => 'Seconde',
+        'minute' => 'Minute',
+        'hour' => 'Heure',
+        'day' => 'Jour',
+        'month' => 'Mois',
+        'year' => 'Année'
     ]
 ];

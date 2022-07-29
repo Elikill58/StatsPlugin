@@ -39,7 +39,7 @@
     <div class="mb-3">
         <label class="form-label" for="">{{ trans('stats::admin.stats.style.index') }}</label>
         <select name="style" id="selectedStyle" class="form-control" onfocus="focusStyle(this)" onchange="changeStyle(this)">
-            @foreach (array(1 => 'basic', 2 => 'ratio') as $styleId => $stylekey)
+            @foreach (array(1 => 'basic', 2 => 'ratio', '3' => 'timed') as $styleId => $stylekey)
                 <option value="{{ $styleId }}" @if(isset($stats->style) && $stats->style == $styleId) selected @endif>
                     {{ trans('stats::admin.stats.style.' . $stylekey) }}
                 </option>
@@ -47,9 +47,19 @@
         </select>
     </div>
     <div class="mb-3" style="display: none;" id="style-2">
-        <label class="form-label" for="nameInput">{{ trans('stats::admin.stats.linked') }}</label>
-        <input type="text" class="form-control" id="nameInput"
+        <label class="form-label" for="linekdInput">{{ trans('stats::admin.stats.linked') }}</label>
+        <input type="text" class="form-control" id="linekdInput"
                name="linked" value="{{ old('linked', $stats->settings['linked'] ?? '') }}">
+    </div>
+    <div class="mb-3" style="display: none;" id="style-3">
+        <label class="form-label" for="timedFromInput">{{ trans('stats::admin.stats.timed_from') }}</label>
+        <select name="timed_from" id="timedFromInput" class="form-control">
+            @foreach (array('millisecond', 'second', 'minute', 'hour', 'day', 'month', 'year') as $timeKey)
+                <option value="{{ $timeKey }}" @if(($stats->settings['timed_from'] ?? 'second') == $timeKey) selected @endif>
+                    {{ trans('stats::admin.timed.' . $timeKey) }}
+                </option>
+            @endforeach
+        </select>
     </div>
 </div>
 

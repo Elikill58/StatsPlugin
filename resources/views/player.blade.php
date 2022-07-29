@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-@section('title', 'Stats')
-
 <?php
 $set = $settings->settings()->settings;
 config([
@@ -19,9 +17,11 @@ if(isset($result) && count($result) > 0) {
     $uuid = $dbResult[$set->column_uuid];
     $name = $dbResult[$set->column_name];
 } else {
-    $name = "Unknow: " . $uuid;
+    $name = $uuid;
 }
 ?>
+
+@section('title', trans('stats::messages.title-player', [ 'name' => $name ]))
 
 @if($uuid == null)
     <script>window.location = "{{ route('stats.index') }}?error=not-found";</script>
@@ -64,6 +64,9 @@ if(isset($result) && count($result) > 0) {
                                                     @break
                                                     @case('2')
                                                     @include('stats::styles._ratio')
+                                                    @break
+                                                    @case('3')
+                                                    @include('stats::styles._timed')
                                                     @break
                                                 @endswitch
                                             @endif
@@ -113,6 +116,9 @@ if(isset($result) && count($result) > 0) {
                                             @break
                                             @case('2')
                                             @include('stats::styles._ratio')
+                                            @break
+                                            @case('3')
+                                            @include('stats::styles._timed')
                                             @break
                                         @endswitch
                                     @endif

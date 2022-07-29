@@ -62,6 +62,51 @@ class Stats extends Model
         return "?";
     }
 
+    public function toVisualTime($val) {
+        $SECONDS = 1;
+        $MINUTES = $SECONDS * 60;
+        $HOURS = $MINUTES * 60;
+        $DAYS = $HOURS * 24;
+        $MONTHS = $DAYS * 30;
+        $YEARS = $MONTHS * 12;
+        $oldVal = $val;
+        $val = $this->convertToSeconds($val);
+        $time = "";
+
+        foreach (array($YEARS => 'year', $MONTHS => 'month', $DAYS => 'day', $HOURS => 'hour', $MINUTES => 'minute', $SECONDS => 'second') as $timeValue => $timeKey) {
+            if($val >= $timeValue) {
+                $trad = trans('stats::messages.timed.' . $timeKey);
+                $reduced = 0;
+                while($val >= $timeValue) {
+                    $val -= $timeValue;
+                    $reduced++;
+                }
+                if($trad != '')
+                    $time = ($time == '' ? '' : $time . ' ') . $reduced . $trad;
+            }
+        }
+        return $time;
+    }
+
+    public function convertToSeconds($val) {
+        $from = $this->settings['timed_from'] ?? 'second';
+        if($from == "millisecond")
+            return $val / 1000;
+
+        $SECONDS = 1;
+        $MINUTES = $SECONDS * 60;
+        $HOURS = $MINUTES * 60;
+        $DAYS = $HOURS * 24;
+        $MONTHS = $DAYS * 30;
+        $YEARS = $MONTHS * 12;
+
+        foreach (array($YEARS => 'year', $MONTHS => 'month', $DAYS => 'day', $HOURS => 'hour', $MINUTES => 'minute', $SECONDS => 'second') as $timeValue => $timeKey) {
+            if ($from == $timeKey)
+                return $val * $timeValue;
+        }
+        return $val;
+    }
+
     public function setSettingsAttribute($array)
     {
         $this->attributes['settings'] = json_encode($array);

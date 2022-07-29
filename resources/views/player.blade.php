@@ -47,31 +47,7 @@ if(isset($result) && count($result) > 0) {
                                     <p>{{ $game->description }}</p>
                                 </div>
                                 <div class="card-body rounded text-center text-primary">
-                                    <?php
-                                    $statsValues = $game->makeRequest($uuid);
-                                    if(count($statsValues) == 0) {
-                                        echo trans('stats::messages.error.never-played');
-                                    } else {
-                                        ?>
-                                        @foreach ($statss as $stats)
-                                            @if($stats->games_id == $game->id)
-                                                <?php
-                                                $val = $stats->getValue($statsValues);
-                                                ?>
-                                                @switch($stats->style ?? 1)
-                                                    @case('1')
-                                                    @include('stats::styles._basic')
-                                                    @break
-                                                    @case('2')
-                                                    @include('stats::styles._ratio')
-                                                    @break
-                                                    @case('3')
-                                                    @include('stats::styles._timed')
-                                                    @break
-                                                @endswitch
-                                            @endif
-                                        @endforeach
-                                    <?php } ?>
+                                    @include('stats::styles.global')
                                 </div>
                             </div>
                         </div>
@@ -88,42 +64,17 @@ if(isset($result) && count($result) > 0) {
             <div class="card shadow">
                 <div class="card-header rounded text-center text-primary">
                     <img src="https://crafatar.com/avatars/{{ $uuid }}">
-
                     <h2>{{ $name }}</h2>
-                    <p>{{ $uuid }}</p>
+                    <p class="profile-uuid">{{ $uuid }}</p>
                 </div>
                 @foreach($games as $game)
-                    @if($game->stats()->count() >= 1 && $game->show_profile)
+                    @if($game->show_profile && $game->stats()->count() >= 1)
                         <div class="card-body rounded text-center text-primary">
-                            @if($game->name != '')
+                            @if($game->name != '' && $game->name != ' ')
                                 <h2>{{ $game->name }}</h2>
                                 <hr>
                             @endif
-                            <?php
-                            $statsValues = $game->makeRequest($uuid);
-                            if(count($statsValues) == 0) {
-                                echo trans('stats::messages.error.never-played');
-                            } else {
-                                ?>
-                                @foreach ($statss as $stats)
-                                    @if($stats->games_id == $game->id)
-                                        <?php
-                                        $val = $stats->getValue($statsValues);
-                                        ?>
-                                        @switch($stats->style ?? 1)
-                                            @case('1')
-                                            @include('stats::styles._basic')
-                                            @break
-                                            @case('2')
-                                            @include('stats::styles._ratio')
-                                            @break
-                                            @case('3')
-                                            @include('stats::styles._timed')
-                                            @break
-                                        @endswitch
-                                    @endif
-                                @endforeach
-                            <?php } ?>
+                            @include('stats::styles.global')
                         </div>
                     @endif
                 @endforeach

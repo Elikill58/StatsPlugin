@@ -1,4 +1,4 @@
-<div class="basic-wrapper">
+<div class="stats-wrapper">
 	<p style="float: left;">
 		{{ $stats->name }}
 	</p>

@@ -39,7 +39,7 @@ if(isset($result) && count($result) > 0) {
                 @foreach($games as $game)
                     @if($game->stats()->count() >= 1 && !$game->show_profile)
                         <div class="col-md-4 no-padding-right padding-bottom">
-                            <div class="card shadow">
+                            <div class="card shadow full-height">
                                 <div class="card-header rounded text-center text-primary">
                                     <i class="bi bi-controller fs-1 mb-4"></i>
 
@@ -60,8 +60,8 @@ if(isset($result) && count($result) > 0) {
                 @endif
             </div>
         </div>
-        <div class="col-3 padding-right">
-            <div class="card shadow">
+        <div class="col-3 padding-right padding-bottom">
+            <div class="card shadow full-height">
                 <div class="card-header rounded text-center text-primary">
                     <img src="https://crafatar.com/avatars/{{ $uuid }}">
                     <h2>{{ $name }}</h2>

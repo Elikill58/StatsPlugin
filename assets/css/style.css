@@ -36,23 +36,11 @@
     background-color: green;
     max-width: 100%;
 }
-.ratio-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    margin: 0 0 16px;
-}
-.ratio-wrapper:last-child, .basic-wrapper:last-child, .basic-wrapper:last-child p {
-    margin: 0;
-}
-.ratio-wrapper p {
-    margin: 0;
-    width: 20%;
-    min-width: fit-content;
-    margin-right: 10px;
-}
-.basic-wrapper {
+.stats-wrapper {
     display: flow-root;
+}
+.stats-wrapper:last-child, .stats-wrapper:last-child p {
+    margin: 0;
 }
 .gapped {
     gap:  10px;
@@ -68,4 +56,7 @@
 }
 .padding-bottom {
     padding-bottom: calc(var(--bs-gutter-x) * .5);
+}
+.full-height {
+    height: 100%;
 }

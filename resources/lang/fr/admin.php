@@ -15,11 +15,14 @@ return [
         'column' => 'Colonne',
         'linked' => 'Lié à',
         'timed_from' => 'Temps de base en',
+        'prefix' => 'Préfixe',
+        'suffix' => 'Suffixe',
         'style' => [
             'index' => 'Style',
             'basic' => 'Basique',
             'ratio' => 'Ratio',
-            'timed' => 'Temps'
+            'timed' => 'Temps',
+            'presuffix' => 'Préfix & Suffix'
         ]
     ],
     'game' => [

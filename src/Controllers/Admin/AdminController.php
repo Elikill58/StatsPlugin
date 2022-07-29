@@ -111,6 +111,8 @@ class AdminController extends Controller
         $input = [
             'linked' => $request->input('linked'),
             'timed_from' => $request->input('timed_from'),
+            'prefix' => $request->input('prefix'),
+            'suffix' => $request->input('suffix'),
         ];
 
         $stat->settings = $input;

@@ -19,6 +19,9 @@ if(count($statsValues) == 0) {
                 @case('3')
                 @include('stats::styles._timed')
                 @break
+                @case('4')
+                @include('stats::styles._presuffix')
+                @break
             @endswitch
         @endif
     @endforeach

@@ -1,4 +1,4 @@
-<div style="display: flow-root;">
+<div class="basic-wrapper">
 	<p style="float: left;">
 		{{ $stats->name }}
 	</p>

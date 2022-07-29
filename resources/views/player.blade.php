@@ -35,13 +35,13 @@ if(isset($result) && count($result) > 0) {
 @section('content')
     <div class="row" id="stats">
         <div class="col-9">
-            <div class="row gapped">
+            <div class="row padding-right">
                 @foreach($games as $game)
                     @if($game->stats()->count() >= 1 && !$game->show_profile)
-                        <div class="col-md-3">
+                        <div class="col-md-4 no-padding-right padding-bottom">
                             <div class="card shadow">
                                 <div class="card-header rounded text-center text-primary">
-                                    <i class="bi bi-controller fs-1 mb-3"></i>
+                                    <i class="bi bi-controller fs-1 mb-4"></i>
 
                                     <h2>{{ $game->name }}</h2>
                                     <p>{{ $game->description }}</p>
@@ -60,7 +60,7 @@ if(isset($result) && count($result) > 0) {
                 @endif
             </div>
         </div>
-        <div class="col-3">
+        <div class="col-3 padding-right">
             <div class="card shadow">
                 <div class="card-header rounded text-center text-primary">
                     <img src="https://crafatar.com/avatars/{{ $uuid }}">

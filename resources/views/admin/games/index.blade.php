@@ -6,47 +6,6 @@
     <link href="{{ plugin_asset('stats', 'css/style.css') }} " rel="stylesheet">
 @endpush
 
-@push('footer-scripts')
-    <script src="{{ asset('vendor/sortablejs/Sortable.min.js') }}"></script>
-    <script>
-        const sortable = Sortable.create(document.getElementById('games'), {
-            group: {
-                name: 'packages',
-                put: function (to, sortable, drag) {
-                    if (!drag.classList.contains('tag-parent')) {
-                        return true;
-                    }
-                    return !drag.querySelector('.tag-parent .tag-parent')
-                        && drag.parentNode.id === 'games';
-                },
-            },
-            animation: 150,
-            handle: '.sortable-handle',
-            onEnd: function (event) {
-                axios.post('{{ route('stats.admin.games.update-order') }}', {
-                    'games': serialize(sortable.el)
-                })
-                    .then(function (response) {
-                        console.log(response)
-                    })
-                    .catch(function (error) {
-                        console.log(error)
-                    })
-            },
-        });
-        function serializeTag(game, preventNested = false) {
-            return {
-                id: game.dataset['gameId'],
-            };
-        }
-        function serialize(games) {
-            return [].slice.call(games.children).map(function (game) {
-                return serializeTag(game);
-            });
-        }
-    </script>
-@endpush
-
 @section('content')
     <div class="row">
         <div class="col-md-6">
@@ -87,6 +46,9 @@
                                         <div class="badge" style="background-color: {{$game->color}}; color: white">{{$game->name}}</div>
                                     </td>
                                     <td>
+                                        <a href="{{ route('stats.admin.games.show', $game) }}" class="mx-1"
+                                           title="{{ trans('messages.actions.show') }}" data-toggle="tooltip"><i
+                                                class="bi bi-eye-fill"></i></a>
                                         <a href="{{ route('stats.admin.games.edit', $game) }}" class="mx-1"
                                            title="{{ trans('messages.actions.edit') }}" data-toggle="tooltip"><i
                                                 class="bi bi-pen-fill"></i></a>

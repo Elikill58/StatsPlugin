@@ -1,6 +1,6 @@
 @extends('admin.layouts.admin')
 
-@section('title', trans('stats::admin.stats.title-edit') .': '.$stats->name)
+@section('title', trans('stats::admin.stats.title-edit', ['name' => $stats->name]))
 
 @push('footer-scripts')
     <script src="{{ asset('vendor/sortablejs/Sortable.min.js') }}"></script>
@@ -12,7 +12,7 @@
 @section('content')
     <div class="card shadow mb-4">
         <div class="card-body">
-            <h3>{{ trans('stats::admin.stats.title-edit') }}</h3>
+            <h3>{{ trans('stats::admin.stats.title-edit', ['name' => $stats->name]) }}</h3>
             <form action="{{ route('stats.admin.stats.update', $stats)}}" method="POST" id="statsForm" enctype="multipart/form-data">
                 @method('PUT')
 

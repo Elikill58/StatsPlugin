@@ -47,13 +47,16 @@ class AdminController extends Controller
         $statss = $request->input('statss');
 
         $statsPosition = 1;
+        $tmp = "";
 
         foreach ($statss as $stats) {
             $id = $stats['id'];
+            $tmp = $tmp . " " . $id . " > " . $statsPosition . ",";
             Stats::whereKey($id)->update([
                 'position' => $statsPosition++,
             ]);
         }
+        return $tmp;
     }
 
 

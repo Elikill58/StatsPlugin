@@ -43,7 +43,7 @@ class Games extends Model
      */
     public function stats()
     {
-        return Stats::where("games_id", $this->id);
+        return Stats::where("games_id", $this->id)->orderBy('position', 'ASC');
     }
 
     public function isSelected($id)

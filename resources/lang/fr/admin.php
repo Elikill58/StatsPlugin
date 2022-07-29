@@ -4,8 +4,9 @@ return [
     'title' => 'Stats',
     'stats' => [
         'index' => 'Stats',
+        'none' => 'Vous n\'avez pas encore de statistiques',
         'title' => 'Créer un stats',
-        'title-edit' => 'Modifier le stats ',
+        'title-edit' => 'Modifier :name',
         'title-list' => 'Liste des stats',
         'default-skin' => 'Par défaut skin minecraft',
         'created' => 'Stats créé.',
@@ -23,6 +24,7 @@ return [
     ],
     'game' => [
         'index' => 'Jeux',
+        'show' => 'Voir un jeu',
         'title' => 'Créer un jeu',
         'title-edit' => 'Modifier le jeu',
         'title-list' => 'Liste des jeux',

@@ -14,7 +14,6 @@
     z-index: 2;
 }
 #stats .bi{
-    font-size:1.5rem;
     transition:transform .5s;
 }
 #stats .bi:hover{
@@ -43,15 +42,30 @@
     justify-content: space-around;
     margin: 0 0 16px;
 }
+.ratio-wrapper:last-child, .basic-wrapper:last-child, .basic-wrapper:last-child p {
+    margin: 0;
+}
 .ratio-wrapper p {
     margin: 0;
     width: 20%;
     min-width: fit-content;
     margin-right: 10px;
 }
+.basic-wrapper {
+    display: flow-root;
+}
 .gapped {
     gap:  10px;
 }
 .profile-uuid {
     font-size: x-small;
+}
+.no-padding-right {
+    padding-right: 0;
+}
+.padding-right {
+    padding-right: calc(var(--bs-gutter-x) * .5);
+}
+.padding-bottom {
+    padding-bottom: calc(var(--bs-gutter-x) * .5);
 }

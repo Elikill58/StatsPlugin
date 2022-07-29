@@ -57,6 +57,16 @@ class GamesController extends Controller
     }
 
     /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Games $game)
+    {
+        return view('stats::admin.games.show', compact('game'));
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param \Azuriom\Plugin\Stats\Requests\GamesRequest $gameRequest

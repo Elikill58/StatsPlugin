@@ -24,7 +24,6 @@ Route::middleware('can:stats.admin')->group(function () {
     Route::post('stats/update-order', [AdminController::class, 'updateOrder'])->name('stats.update-order');
 
     Route::resource('games', GamesController::class);
-    Route::post('games/update-order', [GamesController::class, 'updateOrder'])->name('games.update-order');
 
     Route::resource('settings', SettingController::class)->only('update');
 });

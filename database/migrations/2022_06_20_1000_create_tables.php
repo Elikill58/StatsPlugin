@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('stats_games', function (Blueprint $table) {
+        Schema::create('playerstats_games', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->longText('description')->nullable();
@@ -29,7 +29,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('stats_stats', function (Blueprint $table) {
+        Schema::create('playerstats_stats', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
             $table->string('settings')->nullable();
@@ -41,7 +41,7 @@ return new class extends Migration
             
             $table->foreign('games_id')->references('id')->on('stats_games');
         });
-        Schema::create('stats_settings', function (Blueprint $table) {
+        Schema::create('playerstats_settings', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('settings')->nullable();
@@ -56,8 +56,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stats_games');
-        Schema::dropIfExists('stats_stats');
-        Schema::dropIfExists('stats_settings');
+        Schema::dropIfExists('playerstats_games');
+        Schema::dropIfExists('playerstats_stats');
+        Schema::dropIfExists('playerstats_settings');
     }
 };

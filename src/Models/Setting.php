@@ -27,7 +27,7 @@ class Setting extends Model
      *
      * @var string
      */
-    protected $prefix = 'stats_';
+    protected $prefix = 'playerstats_';
 
     /**
      * The attributes that are mass assignable.

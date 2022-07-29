@@ -19,6 +19,6 @@ class PlayerStatsController extends Controller
         $settings = Setting::first();
         $games = Games::get();
         $statss = Stats::orderBy("position", "ASC")->get();
-        return view('stats::player', compact('games', 'statss', 'settings', 'uuid'));
+        return view('playerstats::player', compact('games', 'statss', 'settings', 'uuid'));
     }
 }

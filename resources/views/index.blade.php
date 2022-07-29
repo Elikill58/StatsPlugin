@@ -3,7 +3,7 @@
 @section('title', 'Stats')
 
 @push('styles')
-    <link href="{{ plugin_asset('stats', 'css/style.css') }} " rel="stylesheet">
+    <link href="{{ plugin_asset('playerstats', 'css/style.css') }} " rel="stylesheet">
 @endpush
 
 @section('content')
@@ -12,24 +12,24 @@
             @if(app('request')->input('error') != null)
             <div class="card">
                 <div class="card-body">
-                    <p class="text-warning">{{ trans('stats::messages.error.' . app('request')->input('error')) }}</p>
+                    <p class="text-warning">{{ trans('playerstats::messages.error.' . app('request')->input('error')) }}</p>
                 </div>
             </div>
             @endif
         </div>
         <div class="col-12">
-            <form class="card">
+            <div class="card">
                 <div class="card-body">
                     <label class="form-label" for="settingEffect">{{ trans('messages.fields.name') }}</label>
                     <input type="text" class="form-control" id="playername" name="playername" required>
                 </div>
                 <div class="card-footer">
-                    <button type="submit" value="submit request" class="btn btn-primary" onclick="return checkValidation()">
+                    <a type="submit" value="submit request" class="btn btn-primary" onclick="return checkValidation()">
                         {{ trans('messages.actions.continue') }}
                         <span role="status"></span>
-                    </button>
+                    </a>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
 @endsection
@@ -37,7 +37,7 @@
 @push('scripts')
     <script>
         function checkValidation() {
-            window.location.href = './stats/' + document.getElementById('playername').value;
+            window.location.href = {{ route('playerstats.index') }} + document.getElementById('playername').value;
             return false;
         }
     </script>

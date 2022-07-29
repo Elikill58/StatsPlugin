@@ -1,9 +1,9 @@
 @extends('admin.layouts.admin')
 
-@section('title', trans('stats::admin.game.title'))
+@section('title', trans('playerstats::admin.game.title'))
 
 @push('styles')
-    <link href="{{ plugin_asset('stats', 'css/style.css') }} " rel="stylesheet">
+    <link href="{{ plugin_asset('playerstats', 'css/style.css') }} " rel="stylesheet">
 @endpush
 
 @section('content')
@@ -11,9 +11,9 @@
         <div class="col-md-6">
             <div class="card shadow mb-4">
                 <div class="card-body">
-                    <form action="{{ route('stats.admin.games.store') }}" method="POST">
-                        <h3>{{ trans('stats::admin.game.title') }}</h3>
-                        @include('stats::admin.games._form')
+                    <form action="{{ route('playerstats.admin.games.store') }}" method="POST">
+                        <h3>{{ trans('playerstats::admin.game.title') }}</h3>
+                        @include('playerstats::admin.games._form')
                         <button type="submit" class="btn btn-primary">
                             <i class="bi bi-save"></i> {{ trans('messages.actions.save') }}
                         </button>
@@ -24,7 +24,7 @@
         <div class="col-md-6">
             <div class="card shadow mb-4">
                 <div class="card-body">
-                    <h3>{{ trans('stats::admin.game.title-list') }}</h3>
+                    <h3>{{ trans('playerstats::admin.game.title-list') }}</h3>
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
@@ -46,13 +46,13 @@
                                         <div class="badge" style="background-color: {{$game->color}}; color: white">{{$game->name}}</div>
                                     </td>
                                     <td>
-                                        <a href="{{ route('stats.admin.games.show', $game) }}" class="mx-1"
+                                        <a href="{{ route('playerstats.admin.games.show', $game) }}" class="mx-1"
                                            title="{{ trans('messages.actions.show') }}" data-toggle="tooltip"><i
                                                 class="bi bi-eye-fill"></i></a>
-                                        <a href="{{ route('stats.admin.games.edit', $game) }}" class="mx-1"
+                                        <a href="{{ route('playerstats.admin.games.edit', $game) }}" class="mx-1"
                                            title="{{ trans('messages.actions.edit') }}" data-toggle="tooltip"><i
                                                 class="bi bi-pen-fill"></i></a>
-                                        <a href="{{ route('stats.admin.games.destroy', $game) }}" class="mx-1"
+                                        <a href="{{ route('playerstats.admin.games.destroy', $game) }}" class="mx-1"
                                            title="{{ trans('messages.actions.delete') }}" data-toggle="tooltip"
                                            data-confirm="delete"><i class="bi bi-trash-fill"></i></a>
                                     </td>

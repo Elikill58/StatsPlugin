@@ -1,6 +1,6 @@
 @extends('admin.layouts.admin')
 
-@section('title', trans('stats::admin.stats.title-edit', ['name' => $stats->name]))
+@section('title', trans('playerstats::admin.stats.title-edit', ['name' => $stats->name]))
 
 @push('footer-scripts')
     <script src="{{ asset('vendor/sortablejs/Sortable.min.js') }}"></script>
@@ -12,22 +12,22 @@
 @section('content')
     <div class="card shadow mb-4">
         <div class="card-body">
-            <h3>{{ trans('stats::admin.stats.title-edit', ['name' => $stats->name]) }}</h3>
-            <form action="{{ route('stats.admin.stats.update', $stats)}}" method="POST" id="statsForm" enctype="multipart/form-data">
+            <h3>{{ trans('playerstats::admin.stats.title-edit', ['name' => $stats->name]) }}</h3>
+            <form action="{{ route('playerstats.admin.stats.update', $stats)}}" method="POST" id="statsForm" enctype="multipart/form-data">
                 @method('PUT')
 
-                @include('stats::admin.stats._form')
+                @include('playerstats::admin.stats._form')
 
 
                 <button type="submit" class="btn btn-primary">
                     <i class="bi bi-save"></i> {{ trans('messages.actions.save') }}
                 </button>
 
-                <a href="{{ route('stats.admin.stats.destroy', $stats) }}" class="btn btn-danger  float-right" data-confirm="delete">
+                <a href="{{ route('playerstats.admin.stats.destroy', $stats) }}" class="btn btn-danger  float-right" data-confirm="delete">
                     <i class="bi bi-trash-fill"></i> {{ trans('messages.actions.delete') }}
                 </a>
 
-                <a href="{{ route('stats.admin.index') }}" class="btn btn-success float-right mr-3">
+                <a href="{{ route('playerstats.admin.index') }}" class="btn btn-success float-right mr-3">
                     <i class="bi bi-arrow-left"></i> {{ trans('messages.actions.back') }}
                 </a>
             </form>

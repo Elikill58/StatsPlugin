@@ -75,7 +75,7 @@ class Stats extends Model
 
         foreach (array($YEARS => 'year', $MONTHS => 'month', $DAYS => 'day', $HOURS => 'hour', $MINUTES => 'minute', $SECONDS => 'second') as $timeValue => $timeKey) {
             if($val >= $timeValue) {
-                $trad = trans('stats::messages.timed.' . $timeKey);
+                $trad = trans('playerstats::messages.timed.' . $timeKey);
                 $reduced = 0;
                 while($val >= $timeValue) {
                     $val -= $timeValue;

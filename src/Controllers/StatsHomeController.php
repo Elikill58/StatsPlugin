@@ -19,6 +19,6 @@ class StatsHomeController extends Controller
         $settings = Setting::first();
         $games = Games::get();
         $statss = Stats::get();
-        return view('stats::index', compact('games', 'statss', 'settings'));
+        return view('playerstats::index', compact('games', 'statss', 'settings'));
     }
 }

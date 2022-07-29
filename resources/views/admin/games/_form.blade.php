@@ -24,7 +24,7 @@
         <div class="form-check form-switch">
             <input type="checkbox" class="form-check-input" id="showProfileInput" name="show_profile"
                     @if($game->show_profile ?? false) checked @endif>
-            <label class="form-check-label" for="showProfileInput">{{ trans('stats::admin.game.show_profile') }}</label>
+            <label class="form-check-label" for="showProfileInput">{{ trans('playerstats::admin.game.show_profile') }}</label>
 
             @error('show_profile')
             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
@@ -86,7 +86,7 @@
         @enderror
     </div>
     <div class="mb-3">
-        <label class="form-label" for="tableInput">{{ trans('stats::admin.game.table') }}</label>
+        <label class="form-label" for="tableInput">{{ trans('playerstats::admin.game.table') }}</label>
         <input type="text" class="form-control @error('stats_table') is-invalid @enderror" id="tableInput"
                name="stats_table"
                value="{{ old('stats_table', $game->stats_table ?? '') }}" required>
@@ -96,7 +96,7 @@
         @enderror
     </div>
     <div class="mb-3">
-        <label class="form-label" for="uniqueColInput">{{ trans('stats::admin.game.unique_col') }}</label>
+        <label class="form-label" for="uniqueColInput">{{ trans('playerstats::admin.game.unique_col') }}</label>
         <input type="text" class="form-control @error('stats_unique_col') is-invalid @enderror" id="uniqueColInput"
                name="stats_unique_col"
                value="{{ old('stats_unique_col', $game->stats_unique_col ?? '') }}" required>
@@ -105,5 +105,5 @@
         <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
         @enderror
     </div>
-    <p>¹{{ trans('stats::admin.game.empty_to_keep') }}</p>
+    <p>¹{{ trans('playerstats::admin.game.empty_to_keep') }}</p>
 </div>

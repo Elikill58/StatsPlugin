@@ -48,7 +48,7 @@ class SettingController extends Controller
      */
     public function edit(Setting $setting)
     {
-        return view('stats::admin.stats.edit', compact('setting'));
+        return view('playerstats::admin.stats.edit', compact('setting'));
     }
 
     /**
@@ -73,8 +73,8 @@ class SettingController extends Controller
         $setting->settings = $input;
         $setting->update($request->validated());
 
-        return redirect()->route('stats.admin.index')
-            ->with('success', trans('stats::admin.setting.updated'));
+        return redirect()->route('playerstats.admin.index')
+            ->with('success', trans('playerstats::admin.setting.updated'));
     }
 
     /**

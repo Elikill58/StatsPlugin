@@ -1,9 +1,9 @@
 @extends('admin.layouts.admin')
 
-@section('title', trans('stats::admin.game.show'))
+@section('title', trans('playerstats::admin.game.show'))
 
 @push('styles')
-    <link href="{{ plugin_asset('stats', 'css/style.css') }} " rel="stylesheet">
+    <link href="{{ plugin_asset('playerstats', 'css/style.css') }} " rel="stylesheet">
 @endpush
 
 @push('footer-scripts')
@@ -23,7 +23,7 @@
             animation: 150,
             handle: '.sortable-handle',
             onEnd: function (event) {
-                axios.post("{{ route('stats.admin.stats.update-order') }}", {
+                axios.post("{{ route('playerstats.admin.stats.update-order') }}", {
                     'statss': serialize(sortable.el)
                 })
                 .then(function (response) {
@@ -52,9 +52,9 @@
         <div class="col-md-6">
             <div class="card shadow mb-4">
                 <div class="card-body">
-                    <h3>{{ trans('stats::admin.game.index') }}</h3>
-                    @include('stats::admin.games._form')
-                    <a href="{{ route('stats.admin.games.edit', $game) }}" type="submit" class="btn btn-primary">
+                    <h3>{{ trans('playerstats::admin.game.index') }}</h3>
+                    @include('playerstats::admin.games._form')
+                    <a href="{{ route('playerstats.admin.games.edit', $game) }}" type="submit" class="btn btn-primary">
                         <i class="bi bi-save"></i> {{ trans('messages.actions.edit') }}
                     </a>
                 </div>
@@ -63,7 +63,7 @@
         <div class="col-md-6">
             <div class="card shadow mb-4">
                 <div class="card-body">
-                    <h3>{{ trans('stats::admin.stats.title-list') }}</h3>
+                    <h3>{{ trans('playerstats::admin.stats.title-list') }}</h3>
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
@@ -71,7 +71,7 @@
                                 <th scope="col">#</th>
                                 <th scope="col">{{ trans('messages.fields.name') }}</th>
                                 <th scope="col">{{ trans('messages.fields.game') }}</th>
-                                <th scope="col">{{ trans('stats::admin.stats.style.index') }}</th>
+                                <th scope="col">{{ trans('playerstats::admin.stats.style.index') }}</th>
                                 <th scope="col">{{ trans('messages.fields.action') }}</th>
                             </tr>
                             </thead>
@@ -89,12 +89,12 @@
                                         </th>
                                         <td>{{ $stats->name }}</td>
                                         <td>{{ $stats->gameName() }}</td>
-                                        <td>{{ trans('stats::admin.stats.style.' . (array(1 => 'basic', 2 => 'ratio', 3 => 'timed', 4 => 'presuffix')[$stats->style])) }}</td>
+                                        <td>{{ trans('playerstats::admin.stats.style.' . (array(1 => 'basic', 2 => 'ratio', 3 => 'timed', 4 => 'presuffix')[$stats->style])) }}</td>
                                         <td>
-                                            <a href="{{ route('stats.admin.games.edit', $game) }}" class="mx-1"
+                                            <a href="{{ route('playerstats.admin.games.edit', $game) }}" class="mx-1"
                                                title="{{ trans('messages.actions.edit') }}" data-toggle="tooltip"><i
                                                     class="bi bi-pen-fill"></i></a>
-                                            <a href="{{ route('stats.admin.games.destroy', $game) }}" class="mx-1"
+                                            <a href="{{ route('playerstats.admin.games.destroy', $game) }}" class="mx-1"
                                                title="{{ trans('messages.actions.delete') }}" data-toggle="tooltip"
                                                data-confirm="delete"><i class="bi bi-trash-fill"></i></a>
                                         </td>
@@ -102,12 +102,12 @@
                                 @endforeach
                             @else
                                 <tr>
-                                    <td colspan=4>{{ trans('stats::admin.stats.none') }}</td>
+                                    <td colspan=4>{{ trans('playerstats::admin.stats.none') }}</td>
                                 </tr>
                             @endif
                             </tbody>
                         </table>
-                        <a href="{{ route('stats.admin.index') }}" type="submit" class="btn btn-primary">
+                        <a href="{{ route('playerstats.admin.index') }}" type="submit" class="btn btn-primary">
                             <i class="bi bi-pen-fill"></i>{{ trans('messages.actions.create') }}
                         </a>
                     </div>

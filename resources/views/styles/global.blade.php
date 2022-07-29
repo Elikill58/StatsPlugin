@@ -11,16 +11,16 @@ if(count($statsValues) == 0) {
             ?>
             @switch($stats->style ?? 1)
                 @case('1')
-                @include('stats::styles._basic')
+                @include('playerstats::styles._basic')
                 @break
                 @case('2')
-                @include('stats::styles._ratio')
+                @include('playerstats::styles._ratio')
                 @break
                 @case('3')
-                @include('stats::styles._timed')
+                @include('playerstats::styles._timed')
                 @break
                 @case('4')
-                @include('stats::styles._presuffix')
+                @include('playerstats::styles._presuffix')
                 @break
             @endswitch
         @endif

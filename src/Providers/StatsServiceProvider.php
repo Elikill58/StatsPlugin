@@ -58,7 +58,7 @@ class StatsServiceProvider extends BasePluginServiceProvider
         }
 
         Permission::registerPermissions([
-            'stats.admin' => 'stats::admin.permission',
+            'playerstats.admin' => 'playerstats::admin.permission',
         ]);
     }
 
@@ -70,7 +70,7 @@ class StatsServiceProvider extends BasePluginServiceProvider
     protected function routeDescriptions()
     {
         return [
-            'stats.index' => trans('stats::messages.title'),
+            'playerstats.index' => trans('playerstats::messages.title'),
         ];
     }
 
@@ -83,14 +83,14 @@ class StatsServiceProvider extends BasePluginServiceProvider
     {
         return [
             'stats' => [
-                'name'       => trans('stats::admin.title'), // Traduction du nom de l'onglet
+                'name'       => trans('playerstats::admin.title'), // Traduction du nom de l'onglet
                 'type'       => 'dropdown',
                 'icon'       => 'bi bi-person-lines-fill', // Icône FontAwesome
-                'route'      => 'stats.admin.*', // Route de la page
-                'permission' => 'stats.stats', // (Optionnel) Permission nécessaire pour voir cet onglet
+                'route'      => 'playerstats.admin.*', // Route de la page
+                'permission' => 'playerstats.stats', // (Optionnel) Permission nécessaire pour voir cet onglet
                 'items'      => [
-                    'stats.admin.index'       => trans('stats::admin.stats.index'),
-                    'stats.admin.games.index' => trans('stats::admin.game.index')
+                    'playerstats.admin.index'       => trans('playerstats::admin.stats.index'),
+                    'playerstats.admin.games.index' => trans('playerstats::admin.game.index')
                 ],
             ],
         ];

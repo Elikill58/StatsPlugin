@@ -1,9 +1,9 @@
 {
-    "id": "stats",
-    "name": "Stats",
-    "description": "Plugin about Stats by Elikill58",
-    "version": "1.0.0",
-    "url": "https://arkemis.fr",
+    "id": "playerstats",
+    "name": "PlayerStats",
+    "description": "See stats of player",
+    "version": "1.0.0-ALPHA",
+    "url": "https://github.com/Elikill58",
     "authors": [
         "Elikill58"
     ],

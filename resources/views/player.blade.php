@@ -21,15 +21,15 @@ if(isset($result) && count($result) > 0) {
 }
 ?>
 
-@section('title', trans('stats::messages.title-player', [ 'name' => $name ]))
+@section('title', trans('playerstats::messages.title-player', [ 'name' => $name ]))
 
 @if($uuid == null)
-    <script>window.location = "{{ route('stats.index') }}?error=not-found";</script>
+    <script>window.location = "{{ route('playerstats.index') }}?error=not-found";</script>
     <?php exit; ?>
 @endif
 
 @push('styles')
-    <link href="{{ plugin_asset('stats', 'css/style.css') }} " rel="stylesheet">
+    <link href="{{ plugin_asset('playerstats', 'css/style.css') }} " rel="stylesheet">
 @endpush
 
 @section('content')
@@ -47,7 +47,7 @@ if(isset($result) && count($result) > 0) {
                                     <p>{{ $game->description }}</p>
                                 </div>
                                 <div class="card-body rounded text-center text-primary">
-                                    @include('stats::styles.global')
+                                    @include('playerstats::styles.global')
                                 </div>
                             </div>
                         </div>
@@ -55,7 +55,7 @@ if(isset($result) && count($result) > 0) {
                 @endforeach
                 @if($games->count() == 0)
                     <div class="alert alert-warning" role="alert">
-                        {{ trans('stats::messages.stats-empty') }}
+                        {{ trans('playerstats::messages.stats-empty') }}
                     </div>
                 @endif
             </div>
@@ -74,7 +74,7 @@ if(isset($result) && count($result) > 0) {
                                 <h2>{{ $game->name }}</h2>
                                 <hr>
                             @endif
-                            @include('stats::styles.global')
+                            @include('playerstats::styles.global')
                         </div>
                     @endif
                 @endforeach

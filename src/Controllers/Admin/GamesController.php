@@ -17,7 +17,7 @@ class GamesController extends Controller
     public function index()
     {
         $games = Games::orderBy('position')->get();
-        return view('stats::admin.games.index', compact('games'));
+        return view('playerstats::admin.games.index', compact('games'));
     }
 
     /**
@@ -63,7 +63,7 @@ class GamesController extends Controller
      */
     public function show(Games $game)
     {
-        return view('stats::admin.games.show', compact('game'));
+        return view('playerstats::admin.games.show', compact('game'));
     }
 
     /**
@@ -77,8 +77,8 @@ class GamesController extends Controller
     {
         Games::create($gameRequest->validated());
 
-        return redirect()->route('stats.admin.games.index')
-            ->with('success', trans('stats::admin.game.created'));
+        return redirect()->route('playerstats.admin.games.index')
+            ->with('success', trans('playerstats::admin.game.created'));
     }
 
     /**
@@ -88,7 +88,7 @@ class GamesController extends Controller
      */
     public function edit(Games $game)
     {
-        return view('stats::admin.games.edit', compact('game'));
+        return view('playerstats::admin.games.edit', compact('game'));
     }
 
     /**
@@ -99,8 +99,8 @@ class GamesController extends Controller
     public function update(GamesRequest $request, Games $game)
     {
         $game->update($request->validated());
-        return redirect()->route('stats.admin.games.index')
-            ->with('success', trans('stats::admin.game.updated'));
+        return redirect()->route('playerstats.admin.games.index')
+            ->with('success', trans('playerstats::admin.game.updated'));
     }
 
     /**
@@ -120,7 +120,7 @@ class GamesController extends Controller
         }
         $game->delete();
 
-        return redirect()->route('stats.admin.games.index')
-            ->with('success', trans('stats::admin.game.deleted'));
+        return redirect()->route('playerstats.admin.games.index')
+            ->with('success', trans('playerstats::admin.game.deleted'));
     }
 }

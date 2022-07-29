@@ -25,7 +25,7 @@ class AdminController extends Controller
         $statss = Stats::orderBy('position')->get();
         $setting = Setting::first();
         $pendingId = old('pending_id', Str::uuid());
-        return view('stats::admin.stats.index', compact('games', 'statss', 'pendingId', 'setting'));
+        return view('playerstats::admin.stats.index', compact('games', 'statss', 'pendingId', 'setting'));
     }
 
 
@@ -92,7 +92,7 @@ class AdminController extends Controller
     public function edit(Stats $stat)
     {
         $games = Games::orderBy('position')->get();
-        return view('stats::admin.stats.edit', [
+        return view('playerstats::admin.stats.edit', [
             'stats' => $stat,
             'games' => $games
         ]);
@@ -118,8 +118,8 @@ class AdminController extends Controller
         $stat->settings = $input;
         $stat->update($request->validated());
 
-        return redirect()->route('stats.admin.index')
-            ->with('success', trans('stats::admin.stats.updated'));
+        return redirect()->route('playerstats.admin.index')
+            ->with('success', trans('playerstats::admin.stats.updated'));
     }
 
     /**
@@ -135,7 +135,7 @@ class AdminController extends Controller
     {
         $stat->delete();
 
-        return redirect()->route('stats.admin.index')
-            ->with('success', trans('stats::admin.stats.deleted'));
+        return redirect()->route('playerstats.admin.index')
+            ->with('success', trans('playerstats::admin.stats.deleted'));
     }
 }

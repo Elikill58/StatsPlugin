@@ -1,7 +1,7 @@
 <?php
 $statsValues = $game->makeRequest($uuid);
 if(count($statsValues) == 0) {
-    echo trans('stats::messages.error.never-played');
+    echo trans('playerstats::messages.error.never-played');
 } else {
     ?>
     @foreach ($statss as $stats)

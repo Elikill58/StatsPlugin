@@ -24,7 +24,7 @@
                     <input type="text" class="form-control" id="playername" name="playername" required>
                 </div>
                 <div class="card-footer">
-                    <a type="submit" value="submit request" class="btn btn-primary" onclick="return checkValidation()">
+                    <a type="submit" value="submit request" class="btn btn-primary" onclick="return checkValidation(document.getElementById('playername').value)">
                         {{ trans('messages.actions.continue') }}
                         <span role="status"></span>
                     </a>
@@ -36,8 +36,8 @@
 
 @push('scripts')
     <script>
-        function checkValidation() {
-            window.location.href = {{ route('playerstats.index') }} + document.getElementById('playername').value;
+        function checkValidation(name) {
+            window.location.href = "{{ route('playerstats.index', ['uuid' => 'UUID']) }}".replace('UUID', name);
             return false;
         }
     </script>

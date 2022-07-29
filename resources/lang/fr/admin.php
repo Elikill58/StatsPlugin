@@ -5,7 +5,7 @@ return [
     'stats' => [
         'index' => 'Stats',
         'none' => 'Vous n\'avez pas encore de statistiques',
-        'title' => 'Créer un stats',
+        'title' => 'Créer une stats',
         'title-edit' => 'Modifier :name',
         'title-list' => 'Liste des stats',
         'default-skin' => 'Par défaut skin minecraft',

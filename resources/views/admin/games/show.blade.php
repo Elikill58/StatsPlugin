@@ -107,6 +107,9 @@
                             @endif
                             </tbody>
                         </table>
+                        <a href="{{ route('stats.admin.index') }}" type="submit" class="btn btn-primary">
+                            <i class="bi bi-pen-fill"></i>{{ trans('messages.actions.create') }}
+                        </a>
                     </div>
                 </div>
             </div>

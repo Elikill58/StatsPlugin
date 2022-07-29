@@ -18,7 +18,7 @@
             <label class="form-label" for="">{{ trans('messages.fields.game') }}</label>
             <select name="games_id" id="gameSelect" class="form-control">
                 @foreach($games as $game)
-                    <option value="{{ $game->id }}">
+                    <option value="{{ $game->id }}" @if(isset($stats->games_id) && $stats->games_id == $game->id) selected @endif>
                         {{ $game->name }}
                     </option>
                 @endforeach
@@ -40,7 +40,7 @@
         <label class="form-label" for="">{{ trans('stats::admin.stats.style.index') }}</label>
         <select name="style" id="selectedStyle" class="form-control" onfocus="focusStyle(this)" onchange="changeStyle(this)">
             @foreach (array(1 => 'basic', 2 => 'ratio') as $styleId => $stylekey)
-                <option value="{{ $styleId }}" @if(isset($stats->style) && $stats->style == $styleId) selected="selected" @endif>
+                <option value="{{ $styleId }}" @if(isset($stats->style) && $stats->style == $styleId) selected @endif>
                     {{ trans('stats::admin.stats.style.' . $stylekey) }}
                 </option>
             @endforeach
@@ -49,7 +49,7 @@
     <div class="mb-3" style="display: none;" id="style-2">
         <label class="form-label" for="nameInput">{{ trans('stats::admin.stats.linked') }}</label>
         <input type="text" class="form-control" id="nameInput"
-               name="linked" value="{{ old('linked', $stats->settings->linked ?? '') }}">
+               name="linked" value="{{ old('linked', $stats->settings['linked'] ?? '') }}">
     </div>
 </div>
 

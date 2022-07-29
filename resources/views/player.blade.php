@@ -35,7 +35,7 @@ if(isset($result) && count($result) > 0) {
 @section('content')
     <div class="row" id="stats">
         <div class="col-9">
-            <div class="row">
+            <div class="row gapped">
                 @foreach($games as $game)
                     @if($game->stats()->count() >= 1)
                         <div class="col-md-3">

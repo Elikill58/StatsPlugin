@@ -37,7 +37,7 @@ if(isset($result) && count($result) > 0) {
         <div class="col-9">
             <div class="row gapped">
                 @foreach($games as $game)
-                    @if($game->stats()->count() >= 1)
+                    @if($game->stats()->count() >= 1 && !$game->show_profile)
                         <div class="col-md-3">
                             <div class="card shadow">
                                 <div class="card-header rounded text-center text-primary">
@@ -84,13 +84,43 @@ if(isset($result) && count($result) > 0) {
         <div class="col-3">
             <div class="card shadow">
                 <div class="card-header rounded text-center text-primary">
-                    <i class="bi bi-controller fs-1 mb-3"></i>
+                    <img src="https://crafatar.com/avatars/{{ $uuid }}">
 
-                    <h2>{{ $name }}</p>
+                    <h2>{{ $name }}</h2>
+                    <p>{{ $uuid }}</p>
                 </div>
-                <div class="card-body rounded text-center text-primary">
-                    test
-                </div>
+                @foreach($games as $game)
+                    @if($game->stats()->count() >= 1 && $game->show_profile)
+                        <div class="card-body rounded text-center text-primary">
+                            @if($game->name != '')
+                                <h2>{{ $game->name }}</h2>
+                                <hr>
+                            @endif
+                            <?php
+                            $statsValues = $game->makeRequest($uuid);
+                            if(count($statsValues) == 0) {
+                                echo trans('stats::messages.error.never-played');
+                            } else {
+                                ?>
+                                @foreach ($statss as $stats)
+                                    @if($stats->games_id == $game->id)
+                                        <?php
+                                        $val = $stats->getValue($statsValues);
+                                        ?>
+                                        @switch($stats->style ?? 1)
+                                            @case('1')
+                                            @include('stats::styles._basic')
+                                            @break
+                                            @case('2')
+                                            @include('stats::styles._ratio')
+                                            @break
+                                        @endswitch
+                                    @endif
+                                @endforeach
+                            <?php } ?>
+                        </div>
+                    @endif
+                @endforeach
             </div>
         </div>
     </div>

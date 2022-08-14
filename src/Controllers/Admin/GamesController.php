@@ -1,10 +1,10 @@
 <?php
-namespace Azuriom\Plugin\Stats\Controllers\Admin;
+namespace Azuriom\Plugin\PlayerStats\Controllers\Admin;
 
 use Azuriom\Http\Controllers\Controller;
-use Azuriom\Plugin\Stats\Models\Stats;
-use Azuriom\Plugin\Stats\Models\Games;
-use Azuriom\Plugin\Stats\Requests\GamesRequest;
+use Azuriom\Plugin\PlayerStats\Models\Stats;
+use Azuriom\Plugin\PlayerStats\Models\Games;
+use Azuriom\Plugin\PlayerStats\Requests\GamesRequest;
 use Illuminate\Http\Request;
 
 class GamesController extends Controller

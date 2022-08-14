@@ -1,12 +1,12 @@
 <?php
 
-namespace Azuriom\Plugin\Stats\Providers;
+namespace Azuriom\Plugin\PlayerStats\Providers;
 
 use Azuriom\Extensions\Plugin\BasePluginServiceProvider;
 use Azuriom\Models\Permission;
-use Azuriom\Plugin\Stats\Models\Setting;
-use Azuriom\Plugin\Stats\Models\Stats;
-use Azuriom\Plugin\Stats\Models\Games;
+use Azuriom\Plugin\PlayerStats\Models\Setting;
+use Azuriom\Plugin\PlayerStats\Models\Stats;
+use Azuriom\Plugin\PlayerStats\Models\Games;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Facades\Schema;
 

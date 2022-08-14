@@ -1,8 +1,8 @@
 <?php
 
-use Azuriom\Plugin\Stats\Controllers\Admin\AdminController;
-use Azuriom\Plugin\Stats\Controllers\Admin\SettingController;
-use Azuriom\Plugin\Stats\Controllers\Admin\GamesController;
+use Azuriom\Plugin\PlayerStats\Controllers\Admin\AdminController;
+use Azuriom\Plugin\PlayerStats\Controllers\Admin\SettingController;
+use Azuriom\Plugin\PlayerStats\Controllers\Admin\GamesController;
 use Illuminate\Support\Facades\Route;
 
 /*

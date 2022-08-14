@@ -9,7 +9,7 @@
     ],
     "azuriom_api": "1.0.0",
     "providers": [
-        "\\Azuriom\\Plugin\\Stats\\Providers\\StatsServiceProvider",
-        "\\Azuriom\\Plugin\\Stats\\Providers\\RouteServiceProvider"
+        "\\Azuriom\\Plugin\\PlayerStats\\Providers\\StatsServiceProvider",
+        "\\Azuriom\\Plugin\\PlayerStats\\Providers\\RouteServiceProvider"
     ]
 }

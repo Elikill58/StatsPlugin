@@ -1,11 +1,11 @@
 <?php
 
-namespace Azuriom\Plugin\Stats\Controllers\Admin;
+namespace Azuriom\Plugin\PlayerStats\Controllers\Admin;
 
 use Azuriom\Http\Controllers\Controller;
 use Azuriom\Models\Setting;
 use Illuminate\Http\Request;
-use Azuriom\Plugin\Stats\Requests\SettingRequest;
+use Azuriom\Plugin\PlayerStats\Requests\SettingRequest;
 
 class SettingController extends Controller
 {
@@ -23,8 +23,8 @@ class SettingController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Azuriom\Plugin\Stats\Requests\SettingRequest $request
-     * @param \Azuriom\Plugin\Stats\Models\Setting          $setting
+     * @param \Azuriom\Plugin\PlayerStats\Requests\SettingRequest $request
+     * @param \Azuriom\Plugin\PlayerStats\Models\Setting          $setting
      *
      * @return \Illuminate\Http\Response
      */

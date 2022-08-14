@@ -4,7 +4,7 @@
     "description": "Plugin Stats for Azuriom",
     "autoload": {
         "psr-4": {
-            "Azuriom\\Plugin\\Stats\\": "src/"
+            "Azuriom\\Plugin\\PlayerStats\\": "src/"
         }
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
-use Azuriom\Plugin\Stats\Controllers\StatsHomeController;
-use Azuriom\Plugin\Stats\Controllers\PlayerStatsController;
+use Azuriom\Plugin\PlayerStats\Controllers\StatsHomeController;
+use Azuriom\Plugin\PlayerStats\Controllers\PlayerStatsController;
 use Illuminate\Support\Facades\Route;
 
 /*

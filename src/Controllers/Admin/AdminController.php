@@ -1,11 +1,11 @@
 <?php
 
-namespace Azuriom\Plugin\Stats\Controllers\Admin;
+namespace Azuriom\Plugin\PlayerStats\Controllers\Admin;
 
 use Azuriom\Http\Controllers\Controller;
-use Azuriom\Plugin\Stats\Models\Stats;
-use Azuriom\Plugin\Stats\Models\Games;
-use Azuriom\Plugin\Stats\Requests\StatsRequest;
+use Azuriom\Plugin\PlayerStats\Models\Stats;
+use Azuriom\Plugin\PlayerStats\Models\Games;
+use Azuriom\Plugin\PlayerStats\Requests\StatsRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
@@ -70,7 +70,7 @@ class AdminController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Azuriom\Plugin\stats\Requests\StatsRequest $request
+     * @param \Azuriom\Plugin\PlayerStats\Requests\StatsRequest $request
      *
      * @return \Illuminate\Http\Response
      */

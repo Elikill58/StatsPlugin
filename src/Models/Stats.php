@@ -1,6 +1,6 @@
 <?php
 
-namespace Azuriom\Plugin\Stats\Models;
+namespace Azuriom\Plugin\PlayerStats\Models;
 
 use Azuriom\Models\Traits\Attachable;
 use Azuriom\Models\Traits\HasTablePrefix;

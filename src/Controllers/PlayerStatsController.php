@@ -1,10 +1,10 @@
 <?php
 
-namespace Azuriom\Plugin\Stats\Controllers;
+namespace Azuriom\Plugin\PlayerStats\Controllers;
 
 use Azuriom\Http\Controllers\Controller;
-use Azuriom\Plugin\Stats\Models\Stats;
-use Azuriom\Plugin\Stats\Models\Games;
+use Azuriom\Plugin\PlayerStats\Models\Stats;
+use Azuriom\Plugin\PlayerStats\Models\Games;
 
 class PlayerStatsController extends Controller
 {

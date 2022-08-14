@@ -1,6 +1,6 @@
 <?php
 
-namespace Azuriom\Plugin\Stats\Providers;
+namespace Azuriom\Plugin\PlayerStats\Providers;
 
 use Azuriom\Extensions\Plugin\BaseRouteServiceProvider;
 use Illuminate\Support\Facades\Route;

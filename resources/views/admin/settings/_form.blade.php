@@ -5,24 +5,24 @@
         <div class="form-left">
             <label class="form-label" for="settingDescription">{{ trans('install.database.database') }}</label>
             <input type="text" class="form-control" id="settingDatabase" name="database" required
-                   value="{{ old('database', $setting->settings()->settings->database ?? '') }}">
+                   value="{{ setting('playerstats.database') ?? '' }}">
         </div>
         <div class="form-right">
             <label class="form-label" for="settingEffect">{{ trans('playerstats::admin.setting.settings.table') }}</label>
             <input type="text" class="form-control" id="settingTable" name="table" required
-                   value="{{ old('table', $setting->settings()->settings->table ?? '') }}">
+                   value="{{ setting('playerstats.table') ?? '' }}">
         </div>
     </div>
     <div class="mb-3" style="display: flex;">
         <div class="form-left">
             <label class="form-label" for="settingEffect">{{ trans('playerstats::admin.setting.settings.column_uuid') }}</label>
             <input type="text" class="form-control" id="settingColumnUuid" name="column_uuid" required
-               value="{{ old('column_uuid', $setting->settings()->settings->column_uuid ?? '') }}">
+               value="{{ setting('playerstats.column_uuid') ?? '' }}">
         </div>
         <div class="form-right">
             <label class="form-label" for="settingEffect">{{ trans('playerstats::admin.setting.settings.column_name') }}</label>
             <input type="text" class="form-control" id="settingColumnName" name="column_name" required
-               value="{{ old('column_name', $setting->settings()->settings->column_name ?? '') }}">
+               value="{{ setting('playerstats.column_name') ?? '' }}">
         </div>
     </div>
 </div>

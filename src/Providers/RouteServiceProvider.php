@@ -21,10 +21,12 @@ class RouteServiceProvider extends BaseRouteServiceProvider
 
     protected function mapPluginsRoutes()
     {
-        Route::prefix("stats")
-            ->middleware('web')
-            ->name($this->plugin->id.'.')
-            ->group(plugin_path($this->plugin->id.'/routes/web.php'));
+        if(setting('playerstats.stats_route')) {
+            Route::prefix("stats")
+                ->middleware('web')
+                ->name($this->plugin->id.'.')
+                ->group(plugin_path($this->plugin->id.'/routes/web.php'));
+        }
         Route::prefix("playerstats")
             ->middleware('web')
             ->name($this->plugin->id.'.')

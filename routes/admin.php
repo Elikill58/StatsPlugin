@@ -25,5 +25,5 @@ Route::middleware('can:playerstats.admin')->group(function () {
 
     Route::resource('games', GamesController::class);
 
-    Route::resource('settings', SettingController::class)->only('update');
+    Route::post('setting', [SettingController::class, 'save'])->name('setting.update');
 });

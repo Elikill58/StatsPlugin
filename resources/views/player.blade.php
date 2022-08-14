@@ -1,21 +1,22 @@
 @extends('layouts.app')
 
 <?php
-$set = $settings->settings()->settings;
+$database = setting('playerstats.database');
+$dbType = config("database.default");
 config([
-    'database.connections.' . $set->database . '.driver' => 'mysql',
-    'database.connections.' . $set->database . '.host' => isSet($set->host) ? $set->host : env('DB_HOST', '127.0.0.1'),
-    'database.connections.' . $set->database . '.port' => isSet($set->port) ? $set->port : env('DB_PORT', '3306'),
-    'database.connections.' . $set->database . '.username' => isSet($set->username) ? $set->username : env('DB_USERNAME', 'root'),
-    'database.connections.' . $set->database . '.password' => isSet($set->password) ? $set->password : env('DB_PASSWORD', ''),
-    'database.connections.' . $set->database . '.database' => $set->database
+    'database.connections.' . $database . '.driver' => 'mysql',
+    'database.connections.' . $database . '.host' => setting('playerstats.host') ? setting('playerstats.host') : config("database.connections." . $dbType . ".host"),
+    'database.connections.' . $database . '.port' => setting('playerstats.port') ? setting('playerstats.port') : config("database.connections." . $dbType . ".port"),
+    'database.connections.' . $database . '.username' => setting('playerstats.username') ? setting('playerstats.username') : config("database.connections." . $dbType . ".username"),
+    'database.connections.' . $database . '.password' => setting('playerstats.password') ? setting('playerstats.password') : config("database.connections." . $dbType . ".password"),
+    'database.connections.' . $database . '.database' => $database
 ]);
 $isValidUUID = preg_match('/^\{?[A-Z0-9]{8}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{12}\}?$/', strtoupper($uuid));
-$result = DB::connection($set->database)->select("SELECT * FROM " . $set->table . " WHERE " . ($isValidUUID ? $set->column_uuid : $set->column_name) . " = ?", [$uuid]);
+$result = DB::connection($database)->select("SELECT * FROM " . setting("playerstats.table") . " WHERE " . ($isValidUUID ? setting("playerstats.column_uuid") : setting("playerstats.column_name")) . " = ?", [$uuid]);
 if(isset($result) && count($result) > 0) {
     $dbResult = json_decode(json_encode($result[0]), true);
-    $uuid = $dbResult[$set->column_uuid];
-    $name = $dbResult[$set->column_name];
+    $uuid = $dbResult[setting("playerstats.column_uuid")];
+    $name = $dbResult[setting("playerstats.column_name")];
 } else {
     $name = $uuid;
 }

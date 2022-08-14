@@ -48,15 +48,6 @@ class StatsServiceProvider extends BasePluginServiceProvider
             'games' => Games::class,
         ]);
 
-        if (Schema::hasTable('stats_settings')) {
-            if (!Setting::first()) {
-                $setting = new Setting();
-                $setting->name = 'global';
-                $setting->settings = array();
-                $setting->save();
-            }
-        }
-
         Permission::registerPermissions([
             'playerstats.admin' => 'playerstats::admin.permission',
         ]);

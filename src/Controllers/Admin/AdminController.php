@@ -3,7 +3,6 @@
 namespace Azuriom\Plugin\Stats\Controllers\Admin;
 
 use Azuriom\Http\Controllers\Controller;
-use Azuriom\Plugin\Stats\Models\Setting;
 use Azuriom\Plugin\Stats\Models\Stats;
 use Azuriom\Plugin\Stats\Models\Games;
 use Azuriom\Plugin\Stats\Requests\StatsRequest;
@@ -23,9 +22,8 @@ class AdminController extends Controller
     {
         $games = Games::orderBy('position')->get();
         $statss = Stats::orderBy('position')->get();
-        $setting = Setting::first();
         $pendingId = old('pending_id', Str::uuid());
-        return view('playerstats::admin.stats.index', compact('games', 'statss', 'pendingId', 'setting'));
+        return view('playerstats::admin.stats.index', compact('games', 'statss', 'pendingId'));
     }
 
 

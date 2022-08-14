@@ -3,7 +3,6 @@
 namespace Azuriom\Plugin\Stats\Controllers;
 
 use Azuriom\Http\Controllers\Controller;
-use Azuriom\Plugin\Stats\Models\Setting;
 use Azuriom\Plugin\Stats\Models\Stats;
 use Azuriom\Plugin\Stats\Models\Games;
 
@@ -16,9 +15,8 @@ class StatsHomeController extends Controller
      */
     public function index()
     {
-        $settings = Setting::first();
         $games = Games::get();
         $statss = Stats::get();
-        return view('playerstats::index', compact('games', 'statss', 'settings'));
+        return view('playerstats::index', compact('games', 'statss'));
     }
 }

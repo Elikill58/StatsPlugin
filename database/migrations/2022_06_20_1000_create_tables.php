@@ -41,12 +41,6 @@ return new class extends Migration
             
             $table->foreign('games_id')->references('id')->on('stats_games');
         });
-        Schema::create('playerstats_settings', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('settings')->nullable();
-            $table->timestamps();
-        });
     }
 
     /**
@@ -58,6 +52,5 @@ return new class extends Migration
     {
         Schema::dropIfExists('playerstats_games');
         Schema::dropIfExists('playerstats_stats');
-        Schema::dropIfExists('playerstats_settings');
     }
 };

@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
-class AdminController extends Controller
+class StatsController extends Controller
 {
 
     /**

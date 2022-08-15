@@ -100,10 +100,10 @@
                                         <td>{{ $stats->gameName() }}</td>
                                         <td>{{ trans('playerstats::admin.stats.style.' . (array(1 => 'basic', 2 => 'ratio', 3 => 'timed', 4 => 'presuffix')[$stats->style])) }}</td>
                                         <td>
-                                            <a href="{{ route('playerstats.admin.games.edit', $game) }}" class="mx-1"
+                                            <a href="{{ route('playerstats.admin.stats.edit', $stats) }}" class="mx-1"
                                                title="{{ trans('messages.actions.edit') }}" data-toggle="tooltip"><i
                                                     class="bi bi-pen-fill"></i></a>
-                                            <a href="{{ route('playerstats.admin.games.destroy', $game) }}" class="mx-1"
+                                            <a href="{{ route('playerstats.admin.stats.destroy', $stats) }}" class="mx-1"
                                                title="{{ trans('messages.actions.delete') }}" data-toggle="tooltip"
                                                data-confirm="delete"><i class="bi bi-trash-fill"></i></a>
                                         </td>

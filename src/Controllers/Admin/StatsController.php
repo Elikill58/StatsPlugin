@@ -78,8 +78,8 @@ class StatsController extends Controller
     {
         $stats = Stats::create($request->validated());
 
-        return redirect()->route('stats.admin.index')
-            ->with('success', trans('stats::admin.stats.created'));
+        return redirect()->route('playerstats.admin.index')
+            ->with('success', trans('playerstats::admin.stats.created'));
     }
 
     /**
@@ -116,7 +116,7 @@ class StatsController extends Controller
         $stat->settings = $input;
         $stat->update($request->validated());
 
-        return redirect()->route('playerstats.admin.index')
+        return redirect()->route('playerstats.admin.stats.show', strval($stat->id))
             ->with('success', trans('playerstats::admin.stats.updated'));
     }
 
@@ -133,7 +133,7 @@ class StatsController extends Controller
     {
         $stat->delete();
 
-        return redirect()->route('playerstats.admin.index')
+        return redirect()->route('playerstats.admin.games.show', strval($stat->games_id))
             ->with('success', trans('playerstats::admin.stats.deleted'));
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Azuriom\Plugin\Stats\Requests;
+namespace Azuriom\Plugin\PlayerStats\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Azuriom\Http\Requests\Traits\ConvertCheckbox;

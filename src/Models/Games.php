@@ -41,30 +41,62 @@ class Games extends Model
     /**
      * Get all of the stats for the game.
      */
-    public function stats()
-    {
+    public function stats() {
         return Stats::where("games_id", $this->id)->orderBy('position', 'ASC');
     }
 
-    public function isSelected($id)
-    {
+    public function isSelected($id) {
         return collect($ids)->contains($id) ? 'selected' : '';
     }
 
-    function isSet($smt) {
+    public function isSet($smt) {
         return isset($smt) && $smt != null && $smt != '';
     }
 
-    public function makeRequest($uuid) {
+    public function getGlobal($key) {
+        return setting('playerstats.' . $key) ? setting('playerstats.' . $key) : config("database.connections." . config("database.default") . "." . $key);
+    }
+
+    public function getStatsHost() {
+        return $this->stats_host ? $this->stats_host : $this->getGlobal("host");
+    }
+
+    public function getStatsPort() {
+        return $this->stats_port ? $this->stats_port : $this->getGlobal("port");
+    }
+
+    public function getStatsUsername() {
+        return $this->stats_username ? $this->stats_username : $this->getGlobal("username");
+    }
+
+    public function getStatsPassword() {
+        return $this->stats_password ? $this->stats_password : $this->getGlobal("password");
+    }
+
+    public function getStatsDatabase() {
+        return $this->stats_database ? $this->stats_database : $this->getGlobal("database");
+    }
+
+    public function getStatsTable() {
+        return $this->stats_table;
+    }
+
+    public function configDatabase() {
+        $database = $this->getStatsDatabase();
+        $dbType = config("database.default");
         config([
-            'database.connections.' . $this->stats_database . '.driver' => 'mysql',
-            'database.connections.' . $this->stats_database . '.host' => isSet($this->stats_host) ? $this->stats_host : env('DB_HOST', '127.0.0.1'),
-            'database.connections.' . $this->stats_database . '.port' => isSet($this->stats_port) ? $this->stats_port : env('DB_PORT', '3306'),
-            'database.connections.' . $this->stats_database . '.username' => isSet($this->stats_username) ? $this->stats_username : env('DB_USERNAME', 'root'),
-            'database.connections.' . $this->stats_database . '.password' => isSet($this->stats_password) ? $this->stats_password : env('DB_PASSWORD', ''),
-            'database.connections.' . $this->stats_database . '.database' => $this->stats_database
+            'database.connections.' . $database . '.driver' => 'mysql',
+            'database.connections.' . $database . '.host' => $this->getStatsHost(),
+            'database.connections.' . $database . '.port' => $this->getStatsPort(),
+            'database.connections.' . $database . '.username' => $this->getStatsUsername(),
+            'database.connections.' . $database . '.password' => $this->getStatsPassword(),
+            'database.connections.' . $database . '.database' => $database
         ]);
-        $result = DB::connection($this->stats_database)->select("SELECT * FROM " . $this->stats_table . " WHERE " . $this->stats_unique_col . " = ?", [$uuid]);
+    }
+
+    public function makeRequest($uuid) {
+        $this->configDatabase();
+        $result = DB::connection($this->getStatsDatabase())->select("SELECT * FROM " . $this->stats_table . " WHERE " . $this->stats_unique_col . " = ?", [$uuid]);
         return isset($result) && count($result) > 0 ? json_decode(json_encode($result[0]), true) : $result;
     }
 }

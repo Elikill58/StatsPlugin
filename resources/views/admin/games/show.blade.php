@@ -63,7 +63,16 @@
         <div class="col-md-6">
             <div class="card shadow mb-4">
                 <div class="card-body">
-                    <h3>{{ trans('playerstats::admin.stats.title-list') }}</h3>
+                    <div style="display: flex;">
+                        <h3>{{ trans('playerstats::admin.stats.title-list') }}</h3>
+                        <form action="{{ route('playerstats.admin.importGame') }}" name="import" method="POST">
+                            @csrf
+                            <input type="number" name="id" value="{{ $game->id }}" hidden>
+                            <button type="submit" class="btn btn-primary button-put-right" title="{{ trans('playerstats::admin.game.import.details') }}" data-toggle="tooltip">
+                                <i class="bi bi-save"></i> {{ trans('playerstats::admin.game.import.title') }}
+                            </button>
+                        </form>
+                    </div>
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
@@ -107,7 +116,7 @@
                             @endif
                             </tbody>
                         </table>
-                        <a href="{{ route('playerstats.admin.index') }}" type="submit" class="btn btn-primary">
+                        <a href="{{ route('playerstats.admin.games.index') }}" type="submit" class="btn btn-primary">
                             <i class="bi bi-pen-fill"></i>{{ trans('messages.actions.create') }}
                         </a>
                     </div>

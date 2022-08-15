@@ -60,3 +60,8 @@
 .flex {
     display: flex;
 }
+.button-put-right {
+    float: right;
+    right: 1.25rem;
+    position: absolute;
+}

@@ -37,7 +37,12 @@ return [
         'table' => 'Table',
         'unique_col' => 'Unique column',
         'show_profile' => 'See on profil',
-        'empty_to_keep' => 'Keep empty to see global value (Global value put on Azuriom)'
+        'empty_to_keep' => 'Keep empty to see global value (Global value put on Azuriom)',
+        'import' => [
+            'title' => 'Import all stats',
+            'details' => 'WARN: It will remove all stats',
+            'confirm' => 'Are you sure you would like to CLEAR all stats before importing them ?'
+        ]
     ],
     'setting' => [
         'title' => 'Parameter',

@@ -6,7 +6,7 @@
     <script src="{{ asset('vendor/sortablejs/Sortable.min.js') }}"></script>
 @endpush
 @push('styles')
-    <link href="{{ plugin_asset('stats', 'css/style.css') }} " rel="stylesheet">
+    <link href="{{ plugin_asset('playerstats', 'css/style.css') }} " rel="stylesheet">
 @endpush
 
 @section('content')
@@ -27,7 +27,7 @@
                     <i class="bi bi-trash-fill"></i> {{ trans('messages.actions.delete') }}
                 </a>
 
-                <a href="{{ route('playerstats.admin.index') }}" class="btn btn-success float-right mr-3">
+                <a href="{{ route('playerstats.admin.games.index') }}" class="btn btn-success float-right mr-3">
                     <i class="bi bi-arrow-left"></i> {{ trans('messages.actions.back') }}
                 </a>
             </form>

@@ -6,6 +6,7 @@ use Azuriom\Plugin\PlayerStats\Models\Stats;
 use Azuriom\Plugin\PlayerStats\Models\Games;
 use Azuriom\Plugin\PlayerStats\Requests\GamesRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class GamesController extends Controller
 {
@@ -122,5 +123,39 @@ class GamesController extends Controller
 
         return redirect()->route('playerstats.admin.games.index')
             ->with('success', trans('playerstats::admin.game.deleted'));
+    }
+
+    public function import(Request $request) {
+        $id = $request->id;
+        $game = Games::where("id", "=", $id)->first();
+        Stats::where("games_id", $id)->delete();
+        $game->configDatabase(); // allow stats_database to be used
+        // column key empty to prevent auto increment to be included
+        $statsToCreate = array();
+        $columns = DB::connection($game->getStatsDatabase())->select("SELECT * FROM information_schema.columns WHERE table_schema = ? AND table_name = ? AND column_key = ''", [ $game->getStatsDatabase(), $game->getStatsTable() ]);
+        foreach($columns as $col) {
+            $colName = $col->COLUMN_NAME;
+            if($colName == "uuid")
+                continue;
+            Stats::create([
+                'name' => ucfirst(strtolower($colName)),
+                'settings' => null,
+                'style' => 1,
+                'stats_column' => $colName,
+                'games_id' => $id,
+                'position' => $col->ORDINAL_POSITION
+            ]);
+            /*array_push($statsToCreate, [
+                'name' => $col->COLUMN_NAME,
+                'settings' => null,
+                'style' => 1,
+                'stats_column' => $col->COLUMN_NAME,
+                'games_id' => $id,
+                'position' => $col->ORDINAL_POSITION
+            ]);*/
+        }
+        //Stats::createMany($statsToCreate);
+        return redirect()->route('playerstats.admin.games.show', compact('game'))
+            ->with('success', trans('playerstats::admin.game.updated'));
     }
 }

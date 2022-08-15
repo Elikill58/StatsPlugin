@@ -18,12 +18,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('can:playerstats.admin')->group(function () {
-    Route::get('/', [AdminController::class, 'index'])->name('index');
+    //Route::get('/', [AdminController::class, 'index'])->name('stats.index');
 
-    Route::resource('stats', AdminController::class)->except('index');
+    Route::resource('stats', AdminController::class);
     Route::post('stats/update-order', [AdminController::class, 'updateOrder'])->name('stats.update-order');
 
     Route::resource('games', GamesController::class);
 
+    Route::get('/setting', [SettingController::class, 'index'])->name('setting');
     Route::post('setting', [SettingController::class, 'save'])->name('setting.update');
 });

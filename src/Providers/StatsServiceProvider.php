@@ -80,8 +80,9 @@ class StatsServiceProvider extends BasePluginServiceProvider
                 'route'      => 'playerstats.admin.*', // Route de la page
                 'permission' => 'playerstats.stats', // (Optionnel) Permission nécessaire pour voir cet onglet
                 'items'      => [
-                    'playerstats.admin.index'       => trans('playerstats::admin.stats.index'),
-                    'playerstats.admin.games.index' => trans('playerstats::admin.game.index')
+                    'playerstats.admin.setting'       => trans('admin.nav.settings.settings'),
+                    'playerstats.admin.games.index' => trans('playerstats::admin.game.index'),
+                    'playerstats.admin.stats.index'       => trans('playerstats::admin.stats.index')
                 ],
             ],
         ];

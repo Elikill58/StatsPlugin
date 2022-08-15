@@ -53,9 +53,6 @@
 
 @section('content')
     <div class="row">
-        <div class="col-12 my-3">
-            @include('playerstats::admin.settings.index')
-        </div>
         <div class="col-xl-6 my-3">
             <div class="card shadow mb-4">
                 <div class="card-body">

@@ -17,7 +17,7 @@ class SettingController extends Controller
      */
     public function index()
     {
-        //
+        return view('playerstats::admin.settings.index');
     }
 
     /**
@@ -37,7 +37,7 @@ class SettingController extends Controller
             'playerstats.stats_route' => $request->input('stats_route')
         ]);
 
-        return redirect()->route('playerstats.admin.index')
+        return redirect()->route('playerstats.admin.setting')
             ->with('success', trans('playerstats::admin.setting.updated'));
     }
 }

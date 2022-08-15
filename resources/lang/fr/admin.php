@@ -48,7 +48,8 @@ return [
             'uuid_name' => 'Configuration de la correspondance UUID <=> Pseudo:',
             'table' => 'Table',
             'column_uuid' => 'Colonne pour les UUID',
-            'column_name' => 'Colonne pour les pseudo'
+            'column_name' => 'Colonne pour les pseudo',
+            'stats_route' => 'Utiliser la route \'/stats\' en plus de \'/playerstats\' (*peut créer des conflits)'
         ]
     ],
     'timed' => [

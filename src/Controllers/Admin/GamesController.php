@@ -137,24 +137,21 @@ class GamesController extends Controller
             $colName = $col->COLUMN_NAME;
             if($colName == "uuid")
                 continue;
+            $visualName = "";
+            foreach(explode("_", $colName) as $partOfName) {
+                if($visualName != "")
+                    $visualName .= " ";
+                $visualName .= ucfirst(strtolower($partOfName));
+            }
             Stats::create([
-                'name' => ucfirst(strtolower($colName)),
+                'name' => $visualName,
                 'settings' => null,
                 'style' => 1,
                 'stats_column' => $colName,
                 'games_id' => $id,
                 'position' => $col->ORDINAL_POSITION
             ]);
-            /*array_push($statsToCreate, [
-                'name' => $col->COLUMN_NAME,
-                'settings' => null,
-                'style' => 1,
-                'stats_column' => $col->COLUMN_NAME,
-                'games_id' => $id,
-                'position' => $col->ORDINAL_POSITION
-            ]);*/
         }
-        //Stats::createMany($statsToCreate);
         return redirect()->route('playerstats.admin.games.show', compact('game'))
             ->with('success', trans('playerstats::admin.game.updated'));
     }

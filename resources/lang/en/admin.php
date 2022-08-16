@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'title' => 'Stats',
+    'title' => 'PlayerStats',
     'stats' => [
         'index' => 'Stats',
         'none' => 'You don\'t have statistics yet',

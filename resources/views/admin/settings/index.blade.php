@@ -12,7 +12,7 @@
             <h3>{{ trans('admin.nav.settings.settings') }}</h3>
             <form action="{{ route('playerstats.admin.setting.update') }}" method="POST">
                 @include('playerstats::admin.settings._form')
-                <button type="submit" class="btn btn-success">
+                <button type="submit" class="btn btn-success" data-confirm="delete">
                     <i class="bi bi-save"></i> {{ trans('messages.actions.save') }}
                 </button>
             </form>

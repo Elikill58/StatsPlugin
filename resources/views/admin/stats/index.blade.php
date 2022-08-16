@@ -97,11 +97,14 @@
                                     <td>{{ $stats->gameName() }}</td>
                                     <td>
                                         <a href="{{ route('playerstats.admin.stats.edit', $stats) }}" class="mx-1"
-                                           title="{{ trans('messages.actions.edit') }}" data-toggle="tooltip"><i
-                                                class="bi bi-pen-fill"></i></a>
+                                           title="{{ trans('messages.actions.edit') }}" data-toggle="tooltip">
+                                           <i class="bi bi-pen-fill"></i>
+                                       </a>
                                         <a href="{{ route('playerstats.admin.stats.destroy', $stats) }}" class="mx-1"
                                            title="{{ trans('messages.actions.delete') }}" data-toggle="tooltip"
-                                           data-confirm="delete"><i class="bi bi-trash-fill"></i></a>
+                                           data-confirm="delete">
+                                           <i class="bi bi-trash-fill"></i>
+                                       </a>
                                     </td>
                                 </tr>
                             @empty

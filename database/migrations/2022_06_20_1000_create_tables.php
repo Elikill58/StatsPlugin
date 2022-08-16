@@ -39,7 +39,7 @@ return new class extends Migration
             $table->unsignedInteger('position')->default(0);
             $table->timestamps();
             
-            $table->foreign('games_id')->references('id')->on('stats_games');
+            $table->foreign('games_id')->references('id')->on('playerstats_games');
         });
     }
 

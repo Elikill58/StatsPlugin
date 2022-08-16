@@ -14,7 +14,7 @@
                 @include('playerstats::admin.games._form')
                 @method('PUT')
 
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-success">
                     <i class="bi bi-save"></i> {{ trans('messages.actions.save') }}
                 </button>
 

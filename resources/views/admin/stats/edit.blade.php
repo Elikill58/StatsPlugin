@@ -19,7 +19,7 @@
                 @include('playerstats::admin.stats._form')
 
 
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-success">
                     <i class="bi bi-save"></i> {{ trans('messages.actions.save') }}
                 </button>
 
@@ -27,7 +27,7 @@
                     <i class="bi bi-trash-fill"></i> {{ trans('messages.actions.delete') }}
                 </a>
 
-                <a href="{{ route('playerstats.admin.games.index') }}" class="btn btn-success float-right mr-3">
+                <a href="{{ route('playerstats.admin.games.index') }}" class="btn btn-primary float-right mr-3">
                     <i class="bi bi-arrow-left"></i> {{ trans('messages.actions.back') }}
                 </a>
             </form>

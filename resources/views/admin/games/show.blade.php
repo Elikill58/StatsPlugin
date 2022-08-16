@@ -54,7 +54,7 @@
                 <div class="card-body">
                     <h3>{{ trans('playerstats::admin.game.index') }}</h3>
                     @include('playerstats::admin.games._form')
-                    <a href="{{ route('playerstats.admin.games.edit', $game) }}" type="submit" class="btn btn-primary">
+                    <a href="{{ route('playerstats.admin.games.edit', $game) }}" type="submit" class="btn btn-success">
                         <i class="bi bi-save"></i> {{ trans('messages.actions.edit') }}
                     </a>
                 </div>
@@ -116,7 +116,7 @@
                             @endif
                             </tbody>
                         </table>
-                        <a href="{{ route('playerstats.admin.games.index') }}" type="submit" class="btn btn-primary">
+                        <a href="{{ route('playerstats.admin.games.index') }}" type="submit" class="btn btn-success">
                             <i class="bi bi-pen-fill"></i>{{ trans('messages.actions.create') }}
                         </a>
                     </div>

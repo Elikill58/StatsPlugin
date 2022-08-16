@@ -64,7 +64,7 @@
 
                         @include('playerstats::admin.stats._form')
 
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" class="btn btn-success">
                             <i class="bi bi-save"></i> {{ trans('messages.actions.save') }}
                         </button>
                     </form>

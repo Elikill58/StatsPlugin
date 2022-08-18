@@ -73,7 +73,7 @@ class StatsServiceProvider extends BasePluginServiceProvider
     protected function adminNavigation()
     {
         return [
-            'stats' => [
+            'playerstats' => [
                 'name'       => trans('playerstats::admin.title'), // Traduction du nom de l'onglet
                 'type'       => 'dropdown',
                 'icon'       => 'bi bi-person-lines-fill', // Icône FontAwesome

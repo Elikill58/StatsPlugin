@@ -3,6 +3,6 @@
 		{{ $stats->name }}
 	</p>
 	<p style="float: right;">
-		{{ $val }}
+		{{ ($stats->settings['prefix'] ?? '') . $val . ($stats->settings['suffix'] ?? '') }}
 	</p>
 </div>

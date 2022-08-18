@@ -110,6 +110,7 @@ class StatsController extends Controller
             'timed_from' => $request->input('timed_from'),
             'prefix' => $request->input('prefix'),
             'suffix' => $request->input('suffix'),
+            'rounded_amount' => $request->input('rounded_amount'),
         ];
 
         $playerstat->settings = $input;
@@ -130,9 +131,9 @@ class StatsController extends Controller
      */
     public function destroy(Stats $playerstat)
     {
-        $stat->delete();
+        $playerstat->delete();
 
-        return redirect()->route('playerstats.admin.games.show', strval($stat->games_id))
+        return redirect()->route('playerstats.admin.games.show', strval($playerstat->games_id))
             ->with('success', trans('playerstats::admin.stats.deleted'));
     }
 }

@@ -17,11 +17,13 @@ return [
         'timed_from' => 'Temps de base en',
         'prefix' => 'Préfixe',
         'suffix' => 'Suffixe',
+        'rounded_amount' => 'Chiffre après la virgule',
         'style' => [
             'index' => 'Style',
             'basic' => 'Basique',
             'ratio' => 'Ratio',
             'timed' => 'Temps',
+            'rounded' => 'Nombre arrondi',
             'presuffix' => 'Préfix & Suffix'
         ]
     ],

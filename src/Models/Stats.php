@@ -107,6 +107,10 @@ class Stats extends Model
         return $val;
     }
 
+    public function getRounded($val) {
+        return number_format($val, $this->settings["rounded_amount"] ?? 0, '.', '');
+    }
+
     public function setSettingsAttribute($array)
     {
         $this->attributes['settings'] = json_encode($array);

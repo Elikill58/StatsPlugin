@@ -20,7 +20,7 @@ if(count($statsValues) == 0) {
                 @include('playerstats::styles._timed')
                 @break
                 @case('4')
-                @include('playerstats::styles._presuffix')
+                @include('playerstats::styles._rounded')
                 @break
             @endswitch
         @endif

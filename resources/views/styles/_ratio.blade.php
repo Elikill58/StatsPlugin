@@ -8,6 +8,6 @@
         $linkedValue = isset($statsValues[$linked]) ? $statsValues[$linked] : 1;
         $porcent = (intval($val) / ($linkedValue == null || $linkedValue == 0 ? 1 : $linkedValue)) * 100;
         ?>
-        {{ intval($porcent) }}%
+        {{ ($stats->settings['prefix'] ?? '') . intval($porcent) . ($stats->settings['suffix'] ?? '') }}%
     </p>
 </div>

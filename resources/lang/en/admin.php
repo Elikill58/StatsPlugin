@@ -17,11 +17,13 @@ return [
         'timed_from' => 'Time from',
         'prefix' => 'Prefix',
         'suffix' => 'Suffix',
+        'rounded_amount' => 'Decimal after point',
         'style' => [
             'index' => 'Style',
             'basic' => 'Basic',
             'ratio' => 'Ratio',
             'timed' => 'Time',
+            'rounded' => 'Rounded number',
             'presuffix' => 'Prefix & Suffix'
         ]
     ],

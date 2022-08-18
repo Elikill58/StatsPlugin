@@ -3,6 +3,6 @@
 		{{ $stats->name }}
 	</p>
 	<p style="float: right;">
-		{{ $stats->toVisualTime($val) }}
+		{{ ($stats->settings['prefix'] ?? '') . $stats->toVisualTime($val) . ($stats->settings['suffix'] ?? '') }}
 	</p>
 </div>

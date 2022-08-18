@@ -35,11 +35,31 @@
             @enderror
         </div>
     </div>
+    <div class="mb-3 flex">
+        <div class="form-left">
+            <label class="form-label" for="prefixInput">{{ trans('playerstats::admin.stats.prefix') }}</label>
+            <input type="text" class="form-control" id="prefixInput"
+                   name="prefix" value="{{ old('prefix', $playerstat->settings['prefix'] ?? '') }}">
+
+            @error('prefix')
+            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+            @enderror
+        </div>
+        <div class="form-right">
+            <label class="form-label" for="suffixInput">{{ trans('playerstats::admin.stats.suffix') }}</label>
+            <input type="text" class="form-control @error('suffix') is-invalid @enderror" id="suffixInput"
+                   name="suffix" value="{{ old('suffix', $playerstat->settings['suffix'] ?? '') }}">
+
+            @error('suffix')
+            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+            @enderror
+        </div>
+    </div>
 
     <div class="mb-3">
         <label class="form-label" for="">{{ trans('playerstats::admin.stats.style.index') }}</label>
         <select name="style" id="selectedStyle" class="form-control" onfocus="focusStyle(this)" onchange="changeStyle(this)">
-            @foreach (array(1 => 'basic', 2 => 'ratio', '3' => 'timed', '4' => 'presuffix') as $styleId => $stylekey)
+            @foreach (array(1 => 'basic', 2 => 'ratio', '3' => 'timed', '4' => 'rounded') as $styleId => $stylekey)
                 <option value="{{ $styleId }}" @if(isset($playerstat->style) && $playerstat->style == $styleId) selected @endif>
                     {{ trans('playerstats::admin.stats.style.' . $stylekey) }}
                 </option>
@@ -61,35 +81,10 @@
             @endforeach
         </select>
     </div>
-    <div class="mb-3" style="display: none;" id="style-3">
-        <label class="form-label" for="timedFromInput">{{ trans('playerstats::admin.stats.timed_from') }}</label>
-        <select name="timed_from" id="timedFromInput" class="form-control">
-            @foreach (array('millisecond', 'second', 'minute', 'hour', 'day', 'month', 'year') as $timeKey)
-                <option value="{{ $timeKey }}" @if(($playerstat->settings['timed_from'] ?? 'second') == $timeKey) selected @endif>
-                    {{ trans('playerstats::admin.timed.' . $timeKey) }}
-                </option>
-            @endforeach
-        </select>
-    </div>
-    <div class="mb-3 flex" style="display: none;" id="style-4">
-        <div class="form-left">
-            <label class="form-label" for="prefixInput">{{ trans('playerstats::admin.stats.prefix') }}</label>
-            <input type="text" class="form-control" id="prefixInput"
-                   name="prefix" value="{{ old('prefix', $playerstat->settings['prefix'] ?? '') }}">
-
-            @error('prefix')
-            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
-            @enderror
-        </div>
-        <div class="form-right">
-            <label class="form-label" for="suffixInput">{{ trans('playerstats::admin.stats.suffix') }}</label>
-            <input type="text" class="form-control @error('suffix') is-invalid @enderror" id="suffixInput"
-                   name="suffix" value="{{ old('suffix', $playerstat->settings['suffix'] ?? '') }}">
-
-            @error('suffix')
-            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
-            @enderror
-        </div>
+    <div class="mb-3" style="display: none;" id="style-4">
+        <label class="form-label" for="roundedAmountInput">{{ trans('playerstats::admin.stats.rounded_amount') }}</label>
+        <input type="number" class="form-control" id="roundedAmountInput"
+               name="rounded_amount" value="{{ old('rounded_amount', $playerstat->settings['rounded_amount'] ?? '0') }}">
     </div>
 </div>
 

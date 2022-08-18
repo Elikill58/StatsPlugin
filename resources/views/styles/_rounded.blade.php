@@ -3,6 +3,6 @@
 		{{ $stats->name }}
 	</p>
 	<p style="float: right;">
-		{{ ($stats->settings['prefix'] ?? '') . $val . ($stats->settings['suffix'] ?? '') }}
+		{{ ($stats->settings['prefix'] ?? '') . $stats->getRounded($val) . ($stats->settings['suffix'] ?? '') }}
 	</p>
 </div>

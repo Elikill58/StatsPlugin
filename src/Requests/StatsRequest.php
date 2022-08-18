@@ -18,7 +18,7 @@ class StatsRequest extends FormRequest
             'settings.*'  => ['required', 'array'],
             'style'       => ['required', 'integer', 'min:1'],
             'stats_column'=> ['required', 'string', 'max:255'],
-            'games_id'    => ['nullable', 'exists:stats_games,id'],
+            'games_id'    => ['nullable', 'exists:playerstats_games,id'],
         ];
     }
 }

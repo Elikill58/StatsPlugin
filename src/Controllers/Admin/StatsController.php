@@ -57,14 +57,13 @@ class StatsController extends Controller
         return $tmp;
     }
 
-
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function show(Stats $stats) {
+        return $this->index();
     }
 
     /**
@@ -85,13 +84,13 @@ class StatsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \Azuriom\Plugin\Stats\Models\Stats $stats
+     * @param \Azuriom\Plugin\PlayerStats\Models\Stats $stats
      */
-    public function edit(Stats $stat)
+    public function edit(Stats $playerstat)
     {
         $games = Games::orderBy('position')->get();
         return view('playerstats::admin.stats.edit', [
-            'stats' => $stat,
+            'playerstat' => $playerstat,
             'games' => $games
         ]);
     }
@@ -99,12 +98,12 @@ class StatsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Azuriom\Plugin\Stats\Requests\StatsRequest $request
-     * @param \Azuriom\Plugin\Stats\Models\Stats          $category
+     * @param \Azuriom\Plugin\PlayerStats\Requests\StatsRequest $request
+     * @param \Azuriom\Plugin\PlayerStats\Models\Stats          $category
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(StatsRequest $request, Stats $stat)
+    public function update(StatsRequest $request, Stats $playerstat)
     {
         $input = [
             'linked' => $request->input('linked'),
@@ -113,23 +112,23 @@ class StatsController extends Controller
             'suffix' => $request->input('suffix'),
         ];
 
-        $stat->settings = $input;
-        $stat->update($request->validated());
+        $playerstat->settings = $input;
+        $playerstat->update($request->validated());
 
-        return redirect()->route('playerstats.admin.stats.show', strval($stat->id))
+        return redirect()->route('playerstats.admin.playerstats.show', strval($playerstat->id))
             ->with('success', trans('playerstats::admin.stats.updated'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param \Azuriom\Plugin\Stats\Models\Stats $stats
+     * @param \Azuriom\Plugin\PlayerStats\Models\Stats $stats
      *
      * @return \Illuminate\Http\Response
      *
      * @throws \Exception
      */
-    public function destroy(Stats $stat)
+    public function destroy(Stats $playerstat)
     {
         $stat->delete();
 

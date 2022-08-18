@@ -85,7 +85,7 @@ class Games extends Model
         $database = $this->getStatsDatabase();
         $dbType = config("database.default");
         config([
-            'database.connections.' . $database . '.driver' => 'mysql',
+            'database.connections.' . $database . '.driver' => $dbType,
             'database.connections.' . $database . '.host' => $this->getStatsHost(),
             'database.connections.' . $database . '.port' => $this->getStatsPort(),
             'database.connections.' . $database . '.username' => $this->getStatsUsername(),

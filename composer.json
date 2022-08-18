@@ -1,7 +1,7 @@
 {
-    "name": "azuriom/stats",
+    "name": "azuriom/playerstats",
     "type": "azuriom-plugin",
-    "description": "Plugin Stats for Azuriom",
+    "description": "Player Stats for Azuriom",
     "autoload": {
         "psr-4": {
             "Azuriom\\Plugin\\PlayerStats\\": "src/"

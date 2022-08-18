@@ -24,7 +24,7 @@
             animation: 150,
             handle: '.sortable-handle',
             onEnd: function (event) {
-                axios.post('{{ route('playerstats.admin.stats.update-order') }}', {
+                axios.post('{{ route('playerstats.admin.playerstats.update-order') }}', {
                     'statss': serialize(sortable.el)
                 })
                     .then(function (response) {
@@ -57,7 +57,7 @@
             <div class="card shadow mb-4">
                 <div class="card-body">
                     <h3>{{ trans('playerstats::admin.stats.title') }}</h3>
-                    <form action="{{ route('playerstats.admin.stats.store') }}" method="POST" id="statsForm"  enctype="multipart/form-data">
+                    <form action="{{ route('playerstats.admin.playerstats.store') }}" method="POST" id="statsForm"  enctype="multipart/form-data">
                         <input type="hidden" name="pending_id" value="{{ $pendingId }}">
 
                         @include('admin.elements.editor', ['imagesUploadUrl' => route('admin.posts.attachments.pending', $pendingId)])
@@ -96,11 +96,11 @@
                                     <td>{{$stats->name}}</td>
                                     <td>{{ $stats->gameName() }}</td>
                                     <td>
-                                        <a href="{{ route('playerstats.admin.stats.edit', $stats) }}" class="mx-1"
+                                        <a href="{{ route('playerstats.admin.playerstats.edit', $stats) }}" class="mx-1"
                                            title="{{ trans('messages.actions.edit') }}" data-toggle="tooltip">
                                            <i class="bi bi-pen-fill"></i>
                                        </a>
-                                        <a href="{{ route('playerstats.admin.stats.destroy', $stats) }}" class="mx-1"
+                                        <a href="{{ route('playerstats.admin.playerstats.destroy', $stats) }}" class="mx-1"
                                            title="{{ trans('messages.actions.delete') }}" data-toggle="tooltip"
                                            data-confirm="delete">
                                            <i class="bi bi-trash-fill"></i>

@@ -82,7 +82,7 @@ class StatsServiceProvider extends BasePluginServiceProvider
                 'items'      => [
                     'playerstats.admin.setting'       => trans('admin.nav.settings.settings'),
                     'playerstats.admin.games.index' => trans('playerstats::admin.game.index'),
-                    'playerstats.admin.stats.index'       => trans('playerstats::admin.stats.index')
+                    'playerstats.admin.playerstats.index'       => trans('playerstats::admin.stats.index')
                 ],
             ],
         ];

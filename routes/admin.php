@@ -18,8 +18,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('can:playerstats.admin')->group(function () {
-    Route::resource('stats', StatsController::class);
-    Route::post('stats/update-order', [StatsController::class, 'updateOrder'])->name('stats.update-order');
+    Route::resource('playerstats', StatsController::class);
+    Route::post('playerstats/update-order', [StatsController::class, 'updateOrder'])->name('playerstats.update-order');
 
     Route::resource('games', GamesController::class);
     Route::post('import', [GamesController::class, 'import'])->name('importGame');

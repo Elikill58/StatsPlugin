@@ -43,7 +43,7 @@
                                         </div>
                                     </th>
                                     <td>
-                                        <div class="badge" style="background-color: {{$game->color}}; color: white">{{$game->name}}</div>
+                                        {{$game->name}}
                                     </td>
                                     <td>
                                         <a href="{{ route('playerstats.admin.games.show', $game) }}" class="mx-1"

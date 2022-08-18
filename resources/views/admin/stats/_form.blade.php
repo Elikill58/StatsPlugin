@@ -83,7 +83,7 @@
     </div>
     <div class="mb-3" style="display: none;" id="style-4">
         <label class="form-label" for="roundedAmountInput">{{ trans('playerstats::admin.stats.rounded_amount') }}</label>
-        <input type="number" class="form-control" id="roundedAmountInput"
+        <input type="number" class="form-control" id="roundedAmountInput" min="0" max="30" 
                name="rounded_amount" value="{{ old('rounded_amount', $playerstat->settings['rounded_amount'] ?? '0') }}">
     </div>
 </div>

@@ -35,7 +35,7 @@ return [
         'updated' => 'Jeu mis à jour.',
         'deleted' => 'Jeu supprimé.',
         'table' => 'Table',
-        'unique_col' => 'Colonne unique',
+        'unique_col' => 'Colonne pour l\'identifiant unique du joueur (UUID)',
         'show_profile' => 'Voir sur le profil',
         'empty_to_keep' => 'Laisser vide pour garder la valeur global (c\'est-à-dire les valeurs utilisées par Azuriom)',
         'import' => [
@@ -54,7 +54,8 @@ return [
             'table' => 'Table',
             'column_uuid' => 'Colonne pour les UUID',
             'column_name' => 'Colonne pour les pseudo',
-            'stats_route' => 'Utiliser la route \'/stats\' en plus de \'/playerstats\' (*peut créer des conflits)'
+            'stats_route' => 'Utiliser la route \'/stats\' en plus de \'/playerstats\' (*peut créer des conflits)',
+            'site_head' => 'Site utilisé pour afficher les têtes des joueurs'
         ]
     ],
     'timed' => [

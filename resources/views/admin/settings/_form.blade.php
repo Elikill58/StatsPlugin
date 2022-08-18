@@ -25,6 +25,16 @@
                value="{{ setting('playerstats.column_name') ?? '' }}">
         </div>
     </div>
+    <div class="mb-3">
+        <label class="form-label" for="siteHeadInput">{{ trans('playerstats::admin.setting.settings.site_head') }}</label>
+        <select name="site_head" id="siteHeadInput" class="form-control">
+            @foreach (array('Craftavatar' => 'https://crafatar.com/avatars/:UUID:', 'McHeads' => 'https://mc-heads.net/avatar/:UUID:') as $siteName => $siteUrl)
+                <option value="{{ $siteUrl }}" @if((setting('playerstats.site_head') ?? 'https://crafatar.com/avatars/:UUID:') == $siteUrl) selected @endif>
+                    {{ $siteName }}
+                </option>
+            @endforeach
+        </select>
+    </div>
     <div class="form-check form-switch">
         <input type="checkbox" class="form-check-input" id="settingUseStatsRoute" name="stats_route" @if(setting('playerstats.stats_route') ?? false) checked @endif>
         <label class="form-check-label" for="settingEffect">{{ trans('playerstats::admin.setting.settings.stats_route') }}</label>

@@ -64,7 +64,7 @@ if(isset($result) && count($result) > 0) {
         <div class="col-3 padding-right padding-bottom">
             <div class="card shadow full-height">
                 <div class="card-header rounded text-center text-primary">
-                    <img src="https://crafatar.com/avatars/{{ $uuid }}">
+                    <img src="{{ str_replace(':UUID:', $uuid, setting('playerstats.site_head') ?? 'https://crafatar.com/avatars/:UUID:') }}">
                     <h2>{{ $name }}</h2>
                 </div>
                 @foreach($games as $game)

@@ -34,7 +34,8 @@ class SettingController extends Controller
             'playerstats.table' => $request->input('table'),
             'playerstats.column_uuid' => $request->input('column_uuid'),
             'playerstats.column_name' => $request->input('column_name'),
-            'playerstats.stats_route' => $request->input('stats_route')
+            'playerstats.stats_route' => $request->input('stats_route'),
+            'playerstats.site_head' => $request->input('site_head')
         ]);
 
         return redirect()->route('playerstats.admin.setting')

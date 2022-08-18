@@ -35,7 +35,7 @@ return [
         'updated' => 'Game updated.',
         'deleted' => 'Game deleted.',
         'table' => 'Table',
-        'unique_col' => 'Unique column',
+        'unique_col' => 'Column for unique identifier of player (UUID)',
         'show_profile' => 'See on profil',
         'empty_to_keep' => 'Keep empty to see global value (Global value put on Azuriom)',
         'import' => [
@@ -54,7 +54,8 @@ return [
             'table' => 'Table',
             'column_uuid' => 'Column for UUID',
             'column_name' => 'Column for pseudo',
-            'stats_route' => 'Utilise route \'/stats\' and not only \'/playerstats\' (*can create conflict)'
+            'stats_route' => 'Utilise route \'/stats\' and not only \'/playerstats\' (*can create conflict)',
+            'site_head' => 'Site used to show players head'
         ]
     ],
     'timed' => [

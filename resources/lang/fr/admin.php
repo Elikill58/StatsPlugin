@@ -2,6 +2,7 @@
 
 return [
     'title' => 'PlayerStats',
+    'permission' => 'Gérer le plugin des statistiques par joueur',
     'stats' => [
         'index' => 'Stats',
         'none' => 'Vous n\'avez pas encore de statistiques',

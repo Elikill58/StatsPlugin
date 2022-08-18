@@ -2,6 +2,7 @@
 
 return [
     'title' => 'PlayerStats',
+    'permission' => 'Manage plugin for player statistics',
     'stats' => [
         'index' => 'Stats',
         'none' => 'You don\'t have statistics yet',

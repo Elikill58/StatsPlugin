@@ -96,7 +96,7 @@ class Games extends Model
 
     public function makeRequest($uuid) {
         $this->configDatabase();
-        $result = DB::connection($this->getStatsDatabase())->select("SELECT * FROM " . $this->stats_table . " WHERE " . $this->stats_unique_col . " = ?", [$uuid]);
+        $result = DB::connection($this->getStatsDatabase())->select("SELECT * FROM " . $this->stats_table . " WHERE " . $this->stats_unique_col . " = ? OR " . $this->stats_unique_col . " = ?", [$uuid, str_replace("-", "", $uuid)]);
         return isset($result) && count($result) > 0 ? json_decode(json_encode($result[0]), true) : $result;
     }
 }

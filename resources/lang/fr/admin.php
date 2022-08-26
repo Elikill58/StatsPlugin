@@ -58,7 +58,8 @@ return [
             'column_uuid' => 'Colonne pour les UUID',
             'column_name' => 'Colonne pour les pseudo',
             'stats_route' => 'Utiliser la route \'/stats\' en plus de \'/playerstats\' (*peut créer des conflits)',
-            'site_head' => 'Site utilisé pour afficher les têtes des joueurs'
+            'site_head' => 'Site utilisé pour afficher les têtes des joueurs',
+            'own_database' => 'Base de donnée différente de celle d\'Azuriom'
         ]
     ],
     'timed' => [

@@ -32,6 +32,11 @@ class SettingController extends Controller
         Setting::updateSettings([
             'playerstats.database' => $request->input('database'),
             'playerstats.table' => $request->input('table'),
+            'playerstats.username' => $request->input('username'),
+            'playerstats.password' => $request->input('password'),
+            'playerstats.host' => $request->input('host'),
+            'playerstats.port' => $request->input('port'),
+            'playerstats.own_database' => $request->input('own_database'),
             'playerstats.column_uuid' => $request->input('column_uuid'),
             'playerstats.column_name' => $request->input('column_name'),
             'playerstats.stats_route' => $request->input('stats_route'),

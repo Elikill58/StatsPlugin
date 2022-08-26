@@ -26,7 +26,7 @@ class Games extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'description', 'show_profile', 'stats_host', 'stats_port', 'stats_username', 'stats_password', 'stats_database', 'stats_table', 'stats_unique_col', 'position'];
+    protected $fillable = ['name', 'description', 'show_profile', 'stats_own_database', 'stats_host', 'stats_port', 'stats_username', 'stats_password', 'stats_database', 'stats_table', 'stats_unique_col', 'position'];
 
     /**
      * The attributes that should be cast to native types.
@@ -35,6 +35,7 @@ class Games extends Model
      */
     protected $casts = [
         'show_profile' => 'boolean',
+        'stats_own_database' => 'boolean',
         'position' => 'integer'
     ];
 
@@ -58,23 +59,23 @@ class Games extends Model
     }
 
     public function getStatsHost() {
-        return $this->stats_host ? $this->stats_host : $this->getGlobal("host");
+        return ($this->stats_own_database ? $this->stats_host : null) ?? $this->getGlobal("host");
     }
 
     public function getStatsPort() {
-        return $this->stats_port ? $this->stats_port : $this->getGlobal("port");
+        return ($this->stats_own_database ? $this->stats_port : null) ?? $this->getGlobal("port");
     }
 
     public function getStatsUsername() {
-        return $this->stats_username ? $this->stats_username : $this->getGlobal("username");
+        return ($this->stats_own_database ? $this->stats_username : null) ?? $this->getGlobal("username");
     }
 
     public function getStatsPassword() {
-        return $this->stats_password ? $this->stats_password : $this->getGlobal("password");
+        return ($this->stats_own_database ? $this->stats_password : null) ?? $this->getGlobal("password");
     }
 
     public function getStatsDatabase() {
-        return $this->stats_database ? $this->stats_database : $this->getGlobal("database");
+        return $this->stats_database ?? $this->getGlobal("database");
     }
 
     public function getStatsTable() {

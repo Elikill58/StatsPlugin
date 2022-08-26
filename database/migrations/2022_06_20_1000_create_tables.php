@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->longText('description')->nullable();
             $table->boolean('show_profile')->default(0);
+            $table->boolean('stats_own_database')->default(0);
             $table->string('stats_host')->nullable();
             $table->unsignedInteger('stats_port')->nullable();
             $table->string('stats_username')->nullable();

@@ -4,6 +4,27 @@
 
 @section('content')
     <div class="row" id="stats">
+        @if(app('request')->input('error') != null)
+            <div class="col-12 py-3">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="text-warning">{{ trans('playerstats::messages.error.' . app('request')->input('error')) }}</p>
+                    </div>
+                </div>
+            </div>
+        @endif
+        <div class="col-12 padding-bottom">
+            <div class="card">
+                <div class="card-body rounded" style="display: flex;">
+                    <label class="form-label" for="settingEffect" style="margin: auto;">{{ trans('messages.fields.name') }}</label>
+                    <input type="text" class="form-control mx-3" id="playername" name="playername" required>
+                    <a type="submit" value="submit request" class="btn btn-primary text-end" onclick="return checkValidation(document.getElementById('playername').value)">
+                        {{ trans('messages.actions.continue') }}
+                        <span role="status"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
         <div class="col-9">
             <div class="row padding-right">
                 @foreach($games as $game)

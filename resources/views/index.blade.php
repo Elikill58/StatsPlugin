@@ -8,18 +8,18 @@
 
 @section('content')
     <div class="row" id="stats">
-        <div class="col-12 py-3">
-            @if(app('request')->input('error') != null)
-            <div class="card">
-                <div class="card-body">
-                    <p class="text-warning">{{ trans('playerstats::messages.error.' . app('request')->input('error')) }}</p>
+        @if(app('request')->input('error') != null)
+            <div class="col-12 py-3">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="text-warning">{{ trans('playerstats::messages.error.' . app('request')->input('error')) }}</p>
+                    </div>
                 </div>
             </div>
-            @endif
-        </div>
+        @endif
         <div class="col-12">
             <div class="card">
-                <div class="card-body">
+                <div class="card-body rounded">
                     <label class="form-label" for="settingEffect">{{ trans('messages.fields.name') }}</label>
                     <input type="text" class="form-control" id="playername" name="playername" required>
                 </div>

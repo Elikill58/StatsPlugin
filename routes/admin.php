@@ -22,6 +22,7 @@ Route::middleware('can:playerstats.admin')->group(function () {
     Route::post('playerstats/update-order', [StatsController::class, 'updateOrder'])->name('playerstats.update-order');
 
     Route::resource('games', GamesController::class);
+    Route::post('games/update-order', [GamesController::class, 'updateOrder'])->name('games.update-order');
     Route::post('import', [GamesController::class, 'import'])->name('importGame');
 
     Route::get('/setting', [SettingController::class, 'index'])->name('setting');

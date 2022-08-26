@@ -41,6 +41,10 @@ class StatsServiceProvider extends BasePluginServiceProvider
 
         $this->registerRouteDescriptions();
 
+        if(setting('playerstats.navigation')) {
+            $this->registerUserNavigation();
+        }
+
         $this->registerAdminNavigation();
 
         Relation::morphMap([
@@ -62,6 +66,16 @@ class StatsServiceProvider extends BasePluginServiceProvider
     {
         return [
             'playerstats.index' => trans('playerstats::messages.title'),
+            'playerstats.own' => trans('playerstats::messages.own.title')
+        ];
+    }
+
+    protected function userNavigation() {
+        return [
+            'playerstats' => [
+                'route' => 'playerstats.own',
+                'name' => trans('playerstats::messages.own.title')
+            ],
         ];
     }
 

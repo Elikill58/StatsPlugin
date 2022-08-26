@@ -1,7 +1,7 @@
 @csrf
 <div class="card-body">
     <h3>{{ trans('playerstats::admin.setting.settings.uuid_name') }}</h3>
-    <div class="form-check form-switch">
+    <div class="mb-3 form-check form-switch">
         <input type="checkbox" class="form-check-input" id="settingOwnDatabase" name="own_database" onclick="showOwnDatabase()" @if(setting('playerstats.own_database') ?? false) checked @endif>
         <label class="form-check-label" for="settingOwnDatabase">{{ trans('playerstats::admin.setting.settings.own_database') }}</label>
     </div>
@@ -52,10 +52,14 @@
                value="{{ setting('playerstats.column_name') ?? '' }}">
         </div>
     </div>
+    <div class="mb-3 form-check form-switch">
+        <input type="checkbox" class="form-check-input" id="settingNavigation" name="navigation" @if(setting('playerstats.navigation') ?? false) checked @endif>
+        <label class="form-check-label" for="settingNavigation">{{ trans('playerstats::admin.setting.settings.navigation') }}</label>
+    </div>
     <div class="mb-3">
         <label class="form-label" for="siteHeadInput">{{ trans('playerstats::admin.setting.settings.site_head') }}</label>
         <select name="site_head" id="siteHeadInput" class="form-control">
-            @foreach (array('Craftavatar' => 'https://crafatar.com/avatars/:UUID:', 'McHeads' => 'https://mc-heads.net/avatar/:UUID:') as $siteName => $siteUrl)
+            @foreach (array('McHeads' => 'https://mc-heads.net/avatar/:UUID:', 'Craftavatar' => 'https://crafatar.com/avatars/:UUID:') as $siteName => $siteUrl)
                 <option value="{{ $siteUrl }}" @if((setting('playerstats.site_head') ?? 'https://mc-heads.net/avatar/:UUID:') == $siteUrl) selected @endif>
                     {{ $siteName }}
                 </option>

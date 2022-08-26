@@ -37,6 +37,7 @@ class SettingController extends Controller
             'playerstats.host' => $request->input('host'),
             'playerstats.port' => $request->input('port'),
             'playerstats.own_database' => $request->input('own_database'),
+            'playerstats.navigation' => $request->input('navigation'),
             'playerstats.column_uuid' => $request->input('column_uuid'),
             'playerstats.column_name' => $request->input('column_name'),
             'playerstats.stats_route' => $request->input('stats_route'),

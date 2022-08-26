@@ -17,4 +17,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [StatsHomeController::class, 'index'])->name('index');
+Route::get('/own', [PlayerStatsController::class, 'own'])->middleware('auth')->name('own');
 Route::get('/{uuid?}', [PlayerStatsController::class, 'index'])->name('index');

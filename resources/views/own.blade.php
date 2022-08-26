@@ -11,26 +11,17 @@ config([
     'database.connections.' . $database . '.password' => setting('playerstats.password') ? setting('playerstats.password') : config("database.connections." . $dbType . ".password"),
     'database.connections.' . $database . '.database' => $database
 ]);
-$result = null;
-if(preg_match('/^\{?[A-Z0-9]{8}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{12}\}?$/', strtoupper($uuid)) || preg_match('/^\{?[A-Z0-9]{32}\}?$/', strtoupper($uuid))) { // valid UUID or cropped one
-    $result = DB::connection($database)->select("SELECT * FROM " . setting("playerstats.table") . " WHERE " . setting("playerstats.column_uuid") . " = ?", [$uuid]);
-} else {
-    $result = DB::connection($database)->select("SELECT * FROM " . setting("playerstats.table") . " WHERE " . setting("playerstats.column_name") . " = ?", [$uuid]);
-}
+$name = $user->name;
+$result = DB::connection($database)->select("SELECT * FROM " . setting("playerstats.table") . " WHERE " . setting("playerstats.column_name") . " = ?", [$name]);
 if(isset($result) && count($result) > 0) {
     $dbResult = json_decode(json_encode($result[0]), true);
     $uuid = $dbResult[setting("playerstats.column_uuid")];
     $name = $dbResult[setting("playerstats.column_name")];
 } else {
-    $name = $uuid;
+    $uuid = $name;
 }
 ?>
 
-@section('title', trans('playerstats::messages.title-player', [ 'name' => $name ]))
-
-@if($uuid == null)
-    <script>window.location = "{{ route('playerstats.index') }}?error=not-found";</script>
-    <?php exit; ?>
-@endif
+@section('title', trans('playerstats::messages.own.title'))
 
 @include('playerstats::_one_player')

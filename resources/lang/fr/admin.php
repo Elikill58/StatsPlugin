@@ -59,7 +59,8 @@ return [
             'column_name' => 'Colonne pour les pseudo',
             'stats_route' => 'Utiliser la route \'/stats\' en plus de \'/playerstats\' (*peut créer des conflits)',
             'site_head' => 'Site utilisé pour afficher les têtes des joueurs',
-            'own_database' => 'Base de donnée différente de celle d\'Azuriom'
+            'own_database' => 'Base de donnée différente de celle d\'Azuriom',
+            'navigation' => 'Ajouter un lien dans le menu de navigation'
         ]
     ],
     'timed' => [

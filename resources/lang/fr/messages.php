@@ -4,6 +4,9 @@ return [
     'title' => 'Stats',
     'title-player' => 'Stats de :name',
     'stats-empty' => 'Le stats est vide.',
+    'own' => [
+        'title' => 'Vos statistiques'
+    ],
     'error' => [
         'not-found' => 'Joueur introuvable.',
         'never-played' => 'Ce joueur n\'a jamais joué à ce jeu'

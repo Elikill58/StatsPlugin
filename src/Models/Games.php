@@ -55,7 +55,7 @@ class Games extends Model
     }
 
     public function getGlobal($key) {
-        return setting('playerstats.' . $key) ? setting('playerstats.' . $key) : config("database.connections." . config("database.default") . "." . $key);
+        return (setting('playerstats.own_database') ? setting('playerstats.' . $key) : null) ?? config("database.connections." . config("database.default") . "." . $key);
     }
 
     public function getStatsHost() {

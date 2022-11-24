@@ -98,7 +98,7 @@
                                         </th>
                                         <td>{{ $stats->name }}</td>
                                         <td>{{ $stats->gameName() }}</td>
-                                        <td>{{ trans('playerstats::admin.stats.style.' . (array(1 => 'basic', 2 => 'ratio', 3 => 'timed', 4 => 'rounded')[$stats->style])) }}</td>
+                                        <td>{{ trans('playerstats::admin.stats.style.' . (array(1 => 'basic', 2 => 'ratio', 3 => 'timed', 4 => 'rounded', '5' => 'count')[$stats->style])) }}</td>
                                         <td>
                                             <a href="{{ route('playerstats.admin.playerstats.edit', $stats) }}" class="mx-1"
                                                title="{{ trans('messages.actions.edit') }}" data-toggle="tooltip"><i

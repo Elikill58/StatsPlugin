@@ -27,7 +27,7 @@
                     <i class="bi bi-trash-fill"></i> {{ trans('messages.actions.delete') }}
                 </a>
 
-                <a href="{{ route('playerstats.admin.games.index') }}" class="btn btn-primary float-right mr-3">
+                <a href="{{ route('playerstats.admin.games.show', $playerstat->games_id) }}" class="btn btn-primary float-right mr-3">
                     <i class="bi bi-arrow-left"></i> {{ trans('messages.actions.back') }}
                 </a>
             </form>

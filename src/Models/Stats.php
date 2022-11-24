@@ -63,6 +63,8 @@ class Stats extends Model
     }
 
     public function toVisualTime($val) {
+        if($val == null || intval($val) == 0)
+            return trans("playerstats::messages.timed.never");
         $SECONDS = 1;
         $MINUTES = $SECONDS * 60;
         $HOURS = $MINUTES * 60;
@@ -70,7 +72,7 @@ class Stats extends Model
         $MONTHS = $DAYS * 30;
         $YEARS = $MONTHS * 12;
         $oldVal = $val;
-        $val = $this->convertToSeconds($val);
+        $val = $this->convertToSeconds(intval($val));
         $time = "";
 
         foreach (array($YEARS => 'year', $MONTHS => 'month', $DAYS => 'day', $HOURS => 'hour', $MINUTES => 'minute', $SECONDS => 'second') as $timeValue => $timeKey) {

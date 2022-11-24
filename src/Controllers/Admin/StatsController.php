@@ -111,12 +111,13 @@ class StatsController extends Controller
             'prefix' => $request->input('prefix'),
             'suffix' => $request->input('suffix'),
             'rounded_amount' => $request->input('rounded_amount'),
+            'split' => $request->input('split'),
         ];
 
         $playerstat->settings = $input;
         $playerstat->update($request->validated());
 
-        return redirect()->route('playerstats.admin.playerstats.show', strval($playerstat->id))
+        return redirect()->route('playerstats.admin.games.show', strval($playerstat->games_id))
             ->with('success', trans('playerstats::admin.stats.updated'));
     }
 

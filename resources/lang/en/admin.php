@@ -19,13 +19,15 @@ return [
         'prefix' => 'Prefix',
         'suffix' => 'Suffix',
         'rounded_amount' => 'Decimal after point',
+        'split' => 'Splitter',
         'style' => [
             'index' => 'Style',
             'basic' => 'Basic',
             'ratio' => 'Ratio',
             'timed' => 'Time',
             'rounded' => 'Rounded number',
-            'presuffix' => 'Prefix & Suffix'
+            'presuffix' => 'Prefix & Suffix',
+            'count' => 'Occurences'
         ]
     ],
     'game' => [

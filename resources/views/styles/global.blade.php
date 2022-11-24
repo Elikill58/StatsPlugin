@@ -22,6 +22,9 @@ if(count($statsValues) == 0) {
                 @case('4')
                 @include('playerstats::styles._rounded')
                 @break
+                @case('5')
+                @include('playerstats::styles._count')
+                @break
             @endswitch
         @endif
     @endforeach

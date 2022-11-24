@@ -59,7 +59,7 @@
     <div class="mb-3">
         <label class="form-label" for="">{{ trans('playerstats::admin.stats.style.index') }}</label>
         <select name="style" id="selectedStyle" class="form-control" onfocus="focusStyle(this)" onchange="changeStyle(this)">
-            @foreach (array(1 => 'basic', 2 => 'ratio', '3' => 'timed', '4' => 'rounded') as $styleId => $stylekey)
+            @foreach (array(1 => 'basic', 2 => 'ratio', '3' => 'timed', '4' => 'rounded', '5' => 'count') as $styleId => $stylekey)
                 <option value="{{ $styleId }}" @if(isset($playerstat->style) && $playerstat->style == $styleId) selected @endif>
                     {{ trans('playerstats::admin.stats.style.' . $stylekey) }}
                 </option>
@@ -85,6 +85,10 @@
         <label class="form-label" for="roundedAmountInput">{{ trans('playerstats::admin.stats.rounded_amount') }}</label>
         <input type="number" class="form-control" id="roundedAmountInput" min="0" max="30" 
                name="rounded_amount" value="{{ old('rounded_amount', $playerstat->settings['rounded_amount'] ?? '0') }}">
+    </div>
+    <div class="mb-3" style="display: none;" id="style-5">
+        <label class="form-label" for="splitInput">{{ trans('playerstats::admin.stats.split') }}</label>
+        <input type="text" class="form-control" id="splitInput" name="split" value="{{ old('split', $playerstat->settings['split'] ?? ';') }}">
     </div>
 </div>
 

@@ -9,6 +9,7 @@ return [
         'never-played' => 'This player never go to this game'
     ],
     'timed' => [
+        'never' => 'Never played',
         'millisecond' => 'ms',
         'second' => 's',
         'minute' => 'min',
